@@ -1,70 +1,220 @@
-# Getting Started with Create React App
+<div align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <h2><b>Project name</b></h2>
 
-## Available Scripts
+</div>
 
-In the project directory, you can run:
+# 📗 Table of Contents
 
-### `npm start`
+- [📖 About the Project](#about-project)
+  - [🔗 Integration with Back-End](#integration-with-back-end)
+  - [🛠 Built With](#built-with)
+      - [Tech Stack](#tech-stack) 
+      - [Key Features](#key-features)
+  - [📡 API Endpoints](#api-endpoints)
+  - [🚀 Live Demo](#live-demo)
+  - [💻 Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Setup](#setup)
+    - [Run the Project](#run-the-project)
+    - [Run the tests](#run-the-tests)
+  - [📋 Kanban Board](#kanban-board) 
+  - [👥 Author](#authors)
+  - [🔭 Issues](#issues)
+  - [🤝 Contributing](#contributing)
+  - [⭐️ Show Your Support](#️support)
+  - [🙏Acknowledgments](#acknowledgments)  
+  - [📝 License](#license)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<!-- PROJECT REQUIREMENTS -->
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Project name <a name="about-project"></a>
 
-### `npm test`
+## 🔗 Integration with Back-End <a name="integration-with-back-end"></a>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Here is the link to the [ Back-End ](https://github.com/leloufadel/full-stuck-project)repository.
 
-### `npm run build`
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠 Built With <a name="built-with"></a>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Tech Stack <a name="tech-stack"></a>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This project was built using these technologies.
 
-### `npm run eject`
+<ul>
+  <li><a href="https://reactjs.org/">React</a></li>
+</ul>
+<ul>
+  <li><a href="https://redux-toolkit.js.org/">Redux ToolKit</a></li>
+</ul>
+<ul>
+  <li><a href="https://reactrouter.com/">React Router</a></li>
+</ul>
+<ul>
+  <li><a href="https://testing-library.com/docs/react-testing-library/intro/">react Testing Library</a></li>
+</ul>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+ <ul>
+    <li><a href="https://babeljs.io/">Babel</a></li>
+ </ul>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<!-- Features -->
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Key Features <a name="key-features"></a>
 
-## Learn More
+- **Gitflow**
+- **Linters implemented**
+- **Redux store**
+- **React Router**
+- **React Hooks**
+- **React Testing Library**
+- **Babel**
+- **ES6**
+- **CSS3**
+- **HTML5**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📡 API Endpoints <a name="api-endpoints"></a>
 
-### Code Splitting
+| Endpoint | Method | Description |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Analyzing the Bundle Size
+## 🚀 Live Demo <a name="live-demo"></a>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+[Comming soon]()
 
-### Making a Progressive Web App
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 💻 Getting Started <a name="getting-started"></a>
 
-### Advanced Configuration
+To get the project up and running on your local machine, follow these steps.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Prerequisites
 
-### Deployment
+In order to run this project you need:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- To clone or fork this repo (https://github.com/leloufadel/front-end-capstone)
+- Have installed [Node.js](https://nodejs.org/en/)
+- Have installed [npm](https://www.npmjs.com/get-npm)
+- Have installed [git](https://git-scm.com/downloads)
+- Have installed [Ruby](https://www.ruby-lang.org/en/downloads/)
+- Have installed [Rails](https://guides.rubyonrails.org/v5.0/getting_started.html#installing-rails)
+- To modify this profile you will also need a text editor like VSCode or Atom.
 
-### `npm run build` fails to minify
+### Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Clone this repository to your desired folder:
+
+```sh
+git clone https://github.com/leloufadel/front-end-capstone.git
+cd front-end-capstone
+```
+
+Install the required dependencies:
+
+```sh
+npm install
+```
+
+### Run the Project
+
+To run the project, execute the following command:
+
+```sh
+npm start
+```
+
+### Run the tests
+
+To run the tests, execute the following command:
+
+```sh
+npm test
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 📋 Kanban Board <a name="kanban-board"></a>
+
+[Project Board](https://github.com/leloufadel/full-stuck-project/projects/1)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 👥 Author <a name="authors"></a>
+
+👤 **Sadaf Daneshgar**
+
+- 👤 GitHub: [@Sadaf-Daneshgar](https://github.com/sadaf-Daneshgar)
+- 👤 Twitter: [@SadafDaneshgar](https://twitter.com/SadafDaneshgar)
+- 👤 LinkedIn: [Sadaf Daneshgar](https://www.linkedin.com/in/sadaf-daneshgar-2002saba/)
+
+👤 **Santiago Ruido**
+
+- 👤 GitHub: [@Arch-Noize](https://github.com/Arch-Noize)
+- 👤 LinkedIn: [Santiago Ruido](https://www.linkedin.com/in/santiago-ruido-a1404880/)
+
+👤 **Garvin Chimone**
+
+- 👤GitHub: [@Chimoneg27](https://github.com/Chimoneg27)
+- 👤Twitter: [@GarvinChimone](https://twitter.com/GarvinChimone)
+- 👤LinkedIn: [Garvin Chimone](https://www.linkedin.com/in/garvin-chimone-37208924a/)
+
+👤 **Aisha Alselwi**
+
+- 👤GitHub:   [Aisha Alselwi](https://github.com/AlselwiAisha)
+- 👤LinkedIn: [Aisha Alselwi](https://www.linkedin.com/in/aisha-alselwi/)
+
+👤 **Lala Aicha El Vadel**
+
+- 👤LinkedIn: [@Lala Aicha El Vadel](https://www.linkedin.com/in/lalaaicha-elvadel/)
+- 👤GitHub: [@Lala Aicha El Vadel](https://github.com/leloufadel)
+- 👤Wellfound: [@Lala Aicha El Vadel](https://wellfound.com/u/leloufadel)
+- 👤Twitter: [@Lala Aicha El Vadel](https://twitter.com/leloufadel)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- FUTURE FEATURES -->
+
+## 🔭 Future Features <a name="future-features"></a>
+
+Upcoming improvements:
+
+- [ ] 
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🔭 Issues <a name="issues"></a>
+
+Find a bug or have a feature request? [Open a new issue](https://github.com/leloufadel/front-end-capstone/issues) here on GitHub.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/leloufadel/front-end-capstone/issues).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## ⭐️ Show Your Support <a name="️support"></a>
+
+If you find this project helpful, please consider starring the repository. Your support is greatly appreciated!
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🙏 Acknowledgments <a name="acknowledgments"></a>
+
+**I would like to thank the following individuals and organizations for their contribution to this project.**
+
+- I would like to express my heartfelt gratitude to [**Microvere**](https://www.microverse.org/?grsf=mohammad-a-nbtazu) for the invaluable learning experience they have provided. 
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 📝 License <a name="license"></a>
+This project is [MIT](./LICENSE) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
