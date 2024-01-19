@@ -13,11 +13,35 @@ export const getBooks = createAsyncThunk('books/getBooks', async () => {
     return res.data;
 });
 
+const bookList = (bookItems) => {
+    const res = [];
+    Object.keys(bookItems).forEach((id) => {
+      const book = bookItems[id][0];
+      book.item_id = id;
+      res.push(book);
+    });
+    return res;
+};
+
 const cartSlice = createSlice({
 	name: 'books',
 	initialState,
     reducers: {},
-    extraReducers: {},
+    extraReducers: {
+      [getBooks.pending]: (state) => {
+        const status = state;
+        status.isLoading = true;
+      },
+      [getBooks.fulfilled]: (state, action) => {
+        const status = state;
+        status.books = bookList(action.payload);
+        status.isLoading = false;
+      },
+      [getBooks.rejected]: (state) => {
+        const status = state;
+        status.isLoading = false;
+      },
+    },
 })
 
 export default cartSlice.reducer;
