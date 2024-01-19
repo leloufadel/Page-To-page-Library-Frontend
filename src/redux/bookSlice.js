@@ -13,12 +13,12 @@ export const getBooks = createAsyncThunk('books/getBooks', async () => {
   return res.data;
 });
 
-export const createBook = createAsyncThunk ('book/createBook', async (newBook) => {
+export const createBook = createAsyncThunk('book/createBook', async (newBook) => {
   const response = await axios.post(url, newBook);
- return response.data;
+  return response.data;
 });
 
-export const removeBook = createAsyncThunk ('book/removeBook', async (bookId) => {
+export const removeBook = createAsyncThunk('book/removeBook', async (bookId) => {
   await axios.delete(`${url}/${bookId}`);
   return bookId;
 });
@@ -49,17 +49,17 @@ const bookSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(getBooks.pending, (state) => {
-      state.isLoading = true;
-    })
-    .addCase(getBooks.fulfilled, (state, action) => {
-      const status = state;
-      status.books = bookList(action.payload);
-      status.isLoading = false;
-    })
-    .addCase(getBooks.rejected, (state, action) => {
-      state.isLoading = false;
-      state.error = action.error.message;
-    });
+        state.isLoading = true;
+      })
+      .addCase(getBooks.fulfilled, (state, action) => {
+        const status = state;
+        status.books = bookList(action.payload);
+        status.isLoading = false;
+      })
+      .addCase(getBooks.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
+      });
   },
 });
 
