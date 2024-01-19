@@ -10,15 +10,13 @@ const url = 'http://localhost:3000/api/books';
 
 export const getBooks = createAsyncThunk('books/getBooks', async () => {
   const res = await axios.get(url);
-  console.log(res.data);
   return res.data;
 });
 
 const bookList = (bookItems) => {
   const res = [];
-  Object.keys(bookItems).forEach((id) => {
-    const book = bookItems[id][0];
-    book.id = id;
+  bookItems.forEach((book) => {
+    console.log(book);
     res.push(book);
   });
   return res;
