@@ -17,8 +17,11 @@ const BookList = () => {
       <ul>
         {books.books.map((book) => (
           <li key={book.id}>
-            <h3>{book.name}</h3>
+            <img src={book.image} alt="book" />
+            <h2>{book.name}</h2>
             <p>{book.author}</p>
+            <p>{book.publisher}</p>
+            <p>{book.pulish_date}</p>
             <button type="button" onClick={() => dispatch(removeBook(book.id))}>
               Delete
             </button>
