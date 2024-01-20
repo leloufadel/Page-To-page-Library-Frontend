@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import BookList from './components/BookList';
 import { getBooks } from './redux/bookSlice';
+import SideNav from './components/Navbar/navbar';
 
 function App() {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <>
+      <SideNav />
       <Routes>
         <Route path="/" element={<BookList />} />
       </Routes>
