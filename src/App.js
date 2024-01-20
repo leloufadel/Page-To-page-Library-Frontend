@@ -5,6 +5,7 @@ import BookList from './components/BookList';
 import { getBooks } from './redux/bookSlice';
 import SideNav from './components/Navbar/navbar';
 import Login from './components/login';
+import './App.css';
 
 function App() {
   const dispatch = useDispatch();
