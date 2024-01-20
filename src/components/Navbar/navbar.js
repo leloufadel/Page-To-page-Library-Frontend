@@ -9,26 +9,31 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import logoImage from '../../Assets/logolibrary.png'
 import '../../stylesheets/navbar.css';
 
-const SideNav = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
 
+
+
+const SideNav = () => {
+ 
+  const [isNavVisible, setNavVisible] = useState(false);
   const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
+    setNavVisible(!isNavVisible);
   };
 
   return (
-    <div className={`nav-container ${sidebarOpen ? 'open' : ''} d-flex flex-column align-items-center`}>
+  <div className={`nav-container ${isNavVisible ? 'open' : ''} d-flex flex-column align-items-center`}>
+
       <nav className="burger">
         <button type="button" aria-label="Navigation" className="toggle-button" onClick={toggleSidebar}>
           <GiHamburgerMenu />
         </button>
       </nav>
-      <div className="logo-img">
-        <img className="logo" src={logoImage} alt="logo" />
-      </div>
+      <nav className={`nav ${isNavVisible ? 'show' : 'hidden'}`}>
+        <div className="logo-img">
+          <img className="logo" src={logoImage} alt="logo" />
+        </div>
       <ul className="sidenav-list d-flex flex-column justify-content-center align-items-center">
         <li className="sidenav-item">
-          <NavLink to="/" className="sidenav-link" onClick={toggleSidebar}>
+          <NavLink to="/BookList"className="sidenav-link" onClick={toggleSidebar}>
             Books
           </NavLink>
         </li>
@@ -43,7 +48,7 @@ const SideNav = () => {
           </NavLink>
         </li>
         <li className="sidenav-item">
-          <NavLink to="/BookList" className="sidenav-link" onClick={toggleSidebar}>
+          <NavLink to="/" className="sidenav-link" onClick={toggleSidebar}>
             Delete Book-
           </NavLink>
         </li>
@@ -93,9 +98,10 @@ const SideNav = () => {
         </ul>
         <p className="copyright">
           <span><AiOutlineCopyrightCircle /></span>
-          2023 Library Book
+          2024 Library Book
         </p>
       </div>
+      </nav>
     </div>
   );
 };
