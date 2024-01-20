@@ -59,6 +59,9 @@ const bookSlice = createSlice({
       .addCase(getBooks.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
+      })
+      .addCase(removeBook.fulfilled, (state, action) => {
+        state.books = state.books.filter((book) => book.id !== action.payload);
       });
   },
 });
