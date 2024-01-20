@@ -6,8 +6,8 @@ import {
 import { BsTwitter } from 'react-icons/bs';
 import { AiOutlineCopyrightCircle } from 'react-icons/ai';
 import { GiHamburgerMenu } from 'react-icons/gi';
-// import logoImage from '../Assets/logolibrary.png'
-import './navbar.css';
+import logoImage from '../../Assets/logolibrary.png'
+import '../../stylesheets/navbar.css';
 
 const SideNav = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -24,7 +24,7 @@ const SideNav = () => {
         </button>
       </nav>
       <div className="logo-img">
-        {/* <img className="logo" src={logoImage} alt="logo" /> */}
+        <img className="logo" src={logoImage} alt="logo" />
       </div>
       <ul className="sidenav-list d-flex flex-column justify-content-center align-items-center">
         <li className="sidenav-item">
@@ -55,6 +55,11 @@ const SideNav = () => {
         <li className="sidenav-item">
           <NavLink to="/" className="sidenav-link" onClick={toggleSidebar}>
             Reservations -
+          </NavLink>
+        </li>
+        <li className="sidenav-item">
+          <NavLink to="/login" className="sidenav-link" onClick={toggleSidebar}>
+          Login
           </NavLink>
         </li>
       </ul>
