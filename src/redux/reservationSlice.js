@@ -6,7 +6,7 @@ const initialState = {
   isLoading: true,
 };
 // I use my rails server on port 3001, so please change it if you want to
-const url = 'http://localhost:3001/api/reservations';
+const url = 'http://localhost:3000/api/reservations?user_id=1';
 
 export const getReservations = createAsyncThunk('reservations/getReservations', async () => {
   const response = await axios.get(url);
