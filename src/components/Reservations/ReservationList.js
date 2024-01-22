@@ -23,7 +23,7 @@ const ReservationList = () => {
             <p>{res.city}</p>
           </li>
         ))}
-        <NavLink to="/ReservationForm">
+        <NavLink to="/newreservation">
           Add reservations
         </NavLink>
       </ul>
