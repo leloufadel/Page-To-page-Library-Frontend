@@ -13,32 +13,39 @@ function BookDetail() {
   }
 
   return (
-    <div className="book-detail-container">
-      <div className="book-detail">
-        <div className="book-image">
-          <img className="img" src={findBook.image} alt={findBook.name} />
-        </div>
-        <div className="book-details">
-          <h2>{findBook.name}</h2>
-          <table className="table table-striped">
-            <tbody>
-              <tr>
-                <th scope="row">Author</th>
-                <td>{findBook.author}</td>
-              </tr>
-              <tr>
-                <th scope="row">Publisher</th>
-                <td>{findBook.publisher}</td>
-              </tr>
-              <tr>
-                <th scope="row">Publish Date</th>
-                <td>{findBook.publish_date}</td>
-              </tr>
-            </tbody>
-          </table>
+    <>
+      <div className="main">
+        <p className="detail-title">Book Detail page</p>
+        <div className="book-detail">
+          <div className="book-image">
+            <img className="img" src={findBook.image} alt={findBook.name} />
+          </div>
+          <div className="book-details">
+            <h3>{findBook.name}</h3>
+            <table className="styled-table">
+              <tbody>
+                <tr>
+                  <th scope="row">Author</th>
+                  <td>{findBook.author}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Book Category</th>
+                  <td>{findBook.category}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Publisher</th>
+                  <td>{findBook.publisher}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Publish Date</th>
+                  <td>{findBook.publish_date}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
