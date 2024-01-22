@@ -135,3 +135,17 @@ h2 {
 
   /* margin: 5px 2px; */
 }
+/* Mobile */
+@media screen and (width < 768px) {
+  .Books-package {
+    width: 100% !important;
+  }
+
+  .swiper-slide {
+    width: 100% !important;
+  }
+
+  .books-line {
+    margin-bottom: 0 !important;
+  }
+}
