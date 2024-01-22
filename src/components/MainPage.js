@@ -65,7 +65,7 @@ const MainPage = () => {
           >
             {displayedBooks.map((book) => (
               <SwiperSlide key={book.id}>
-                <Link to={`/books/${book.name}`}>
+                <Link to={`/books/${book.id}`}>
                   <img className="img" src={book.image} alt="book" />
                   <h2>{book.name}</h2>
                   ....................
