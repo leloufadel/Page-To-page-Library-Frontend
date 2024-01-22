@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import BookList from './components/BookList';
 import { getBooks } from './redux/bookSlice';
 import SideNav from './components/Navbar/navbar';
 import Login from './components/login';
+import BookDetail from './components/BookDetail';
+import MainPage from './components/MainPage';
 import './App.css';
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
       <SideNav />
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/booklist" element={<BookList />} />
+        <Route path="/mainpage" element={<MainPage />} />
+        <Route path="/books/:name" element={<BookDetail />} />
       </Routes>
     </>
   );

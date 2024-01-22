@@ -7,3 +7,33 @@
 body {
   height: 100vh;
 }
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Add this CSS to your styles file or in-line style */
+
+.list {
+  text-align: center;
+  margin: 5rem auto;
+}
+
+.book-list {
+  display: flex;
+  gap: 20px;
+}
+
+.icons svg {
+  border-radius: 50%; /* Make the icon circular */
+  border: 1px solid #000; 
+  margin: 5px;
+}
+
+.icons {
+  padding: 10px;
+}
