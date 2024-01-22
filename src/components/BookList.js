@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeBook } from '../redux/bookSlice';
-import SideNav from './Navbar/navbar';
 
 const BookList = () => {
   const books = useSelector((state) => state.books);
@@ -15,7 +14,6 @@ const BookList = () => {
 
   return (
     <div>
-      <SideNav />
       <ul>
         {books.books.map((book) => (
           <li key={book.id}>
