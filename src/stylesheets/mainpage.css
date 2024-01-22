@@ -1,0 +1,36 @@
+.swipe-btn-1,
+.swipe-btn-2 {
+  height: 40px;
+  border: none;
+  display: flex;
+  align-items: center;
+  padding: 20px 20px;
+} 
+.swiper {
+    flex:0.85;
+}
+
+.swipe-btn-1{
+    flex: 0.075;
+    background-color: gray;
+    justify-content: flex-end;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    justify-content: flex-end;
+    padding-right: 15px;
+}
+
+
+.swipe-btn-2 {
+  flex: 0.075;
+  background-color: #80cd32;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  justify-content: flex-start;
+  padding-left: 15px;
+}
+
+.slide-button {
+  width: 15px;
+  height: 15px;
+}
