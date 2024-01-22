@@ -42,6 +42,8 @@ const MainPage = () => {
         <div className="text-center">
           <h1 className="books-heading">Book library</h1>
           <p className="books-sub-heading">Choose a book to see more details</p>
+          <p className="books-line">------------------------</p>
+
         </div>
         <div className="Books-list">
           <button
@@ -66,15 +68,22 @@ const MainPage = () => {
             {displayedBooks.map((book) => (
               <SwiperSlide key={book.id}>
                 <Link to={`/books/${book.name}`}>
-                  <img className="img" src={book.image} alt="book" />
+          <div className="Books-package-n">
+          <img className="img" src={book.image} alt="book" />
                   <h2>{book.name}</h2>
-                  ....................
-                  <p>{book.category}</p>
-                  <p>{book.info}</p>
-                  <div className="icons">
-                    <FaFacebookF />
-                    <BsTwitter />
-                    <FaVimeoV />
+        <div className="books-sub-heading">
+          <p>{book.category}</p>
+          <p>{book.info}</p>
+          <p className="books-line">------------------------</p>
+                 
+                  
+          <div className="icons">
+          <FaFacebookF className="icon" />
+          <BsTwitter className="icon" />
+          <FaVimeoV className="icon" />
+          </div>
+
+                  </div>
                   </div>
                 </Link>
               </SwiperSlide>
