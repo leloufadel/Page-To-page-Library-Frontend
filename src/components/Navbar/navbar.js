@@ -39,7 +39,7 @@ const SideNav = () => {
         </div>
         <ul className="sidenav-list d-flex flex-column justify-content-center align-items-center">
           <li className="sidenav-item">
-            <NavLink to="/BookList" className="sidenav-link" onClick={toggleSidebar}>
+            <NavLink to="/MainPage" className="sidenav-link" onClick={toggleSidebar}>
               Books
             </NavLink>
           </li>
