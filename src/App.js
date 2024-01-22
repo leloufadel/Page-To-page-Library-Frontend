@@ -26,7 +26,6 @@ function App() {
         <Route path="/logout" element={<Logout />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/booklist" element={<BookList />} />
         <Route path="/mainpage" element={<MainPage />} />
         <Route path="/books/:name" element={<BookDetail />} />
       </Routes>
