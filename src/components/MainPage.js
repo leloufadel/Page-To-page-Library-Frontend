@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FaFacebookF, FaVimeoV } from 'react-icons/fa';
-// import { TiMediaPlayReverseOutline, TiMediaPlayOutline } from 'react-icons/ti';
 import { BsTwitter } from 'react-icons/bs';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
