@@ -30,10 +30,14 @@ a {
 }
 
 .book-image {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
+  width: 400px;
+  height: 400px;
   border: 1px solid #ddd;
+}
+
+.img {
+  width: 400px;
+  height: 400px;
 }
 
 .book-details {
@@ -73,9 +77,13 @@ a {
   .book-image {
     width: 200px;
     height: 200px;
-    border-radius: 50%;
     border: 1px solid #ddd;
     margin-left: 60px;
+  }
+
+  .img {
+    width: 200px;
+    height: 200px;
   }
 
   .styled-table {
