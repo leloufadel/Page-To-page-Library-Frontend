@@ -8,17 +8,18 @@ const initialState = {
 // I use my rails server on port 3001, so please change it if you want to
 const url = 'http://localhost:3001/api/reservations';
 
-const getReservations = createAsyncThunk('reservations/getReservations', async () => {
+export const getReservations = createAsyncThunk('reservations/getReservations', async () => {
   const response = await axios.get(url);
+  console.log(response.data);
   return response.data;
 });
 
-const createReservation = createAsyncThunk('reservation/createReservation', async (newReservation) => {
+export const createReservation = createAsyncThunk('reservation/createReservation', async (newReservation) => {
   const response = await axios.post(url, newReservation);
   return response.data;
 });
 
-const reservationsList = (reservationsItems) => {
+export const reservationsList = (reservationsItems) => {
   const res = [];
   reservationsItems.forEach((reservation) => {
     res.push(reservation);

@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import BookList from './components/BookList';
 import { getBooks } from './redux/bookSlice';
+import { getReservations } from './redux/reservationSlice';
 import SideNav from './components/Navbar/navbar';
 import Login from './components/login';
 import './App.css';
@@ -12,6 +13,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getBooks());
+    dispatch(getReservations());
   });
 
   return (
