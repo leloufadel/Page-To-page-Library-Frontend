@@ -40,17 +40,14 @@ const MainPage = () => {
 
   return (
     <>
-      <div className="list">
-        <div className="title">
-          <h1>Book library</h1>
-          <p>Choose a book to see more details</p>
-        </div>
-        <ul className="book-list">
+     <div className="Books-package d-flex justify-content-center align-items-center">
+      <div className="text-center">
+        <h1 className="books-heading">Book library</h1>
+        <p className="books-sub-heading">Choose a book to see more details</p>
+      </div>
+        <div className="Books-list">
           <button
-            type="button"
-            className="swipe-btn-1"
-            aria-label="Previous"
-            onClick={handlePrevSlide}
+            type="button" className="swipe-btn-1" aria-label="Previous" onClick={handlePrevSlide}
           >
             <img
               className="slide-button"
@@ -73,6 +70,7 @@ const MainPage = () => {
                 <Link to={`/books/${book.name}`}>
                   <img className="img" src={book.image} alt="book" />
                   <h2>{book.name}</h2>
+                  ....................
                   <p>{book.category}</p>
                   <p>{book.info}</p>
                   <div className="icons">
@@ -96,7 +94,7 @@ const MainPage = () => {
           />
           </button>
           
-        </ul>
+        </div>
       </div>
     </>
   );

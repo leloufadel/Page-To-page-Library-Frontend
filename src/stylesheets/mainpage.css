@@ -1,3 +1,28 @@
+.Books-package {
+    width: 80%;
+    max-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto; /* Center the container horizontally */
+  }
+  
+  .books-heading {
+    font-size: 1.2rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: black;
+    margin: 0;
+  }
+  
+  .books-sub-heading {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: gray;
+    margin: 0;
+  }
+  
 .swipe-btn-1,
 .swipe-btn-2 {
   height: 40px;
@@ -9,8 +34,15 @@
 .swiper {
     flex:0.85;
 }
-
-.swipe-btn-1{
+.Books-list {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    /* overflow: scroll; */
+    box-sizing: border-box;
+    margin-top: 30px;
+  }
+.swipe-btn-1 {
     flex: 0.075;
     background-color: gray;
     justify-content: flex-end;
@@ -19,7 +51,6 @@
     justify-content: flex-end;
     padding-right: 15px;
 }
-
 
 .swipe-btn-2 {
   flex: 0.075;
@@ -34,3 +65,7 @@
   width: 15px;
   height: 15px;
 }
+ 
+.swiper-slide {
+    width: 35.3% !important;
+  } 
