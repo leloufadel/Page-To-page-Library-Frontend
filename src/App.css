@@ -63,7 +63,7 @@ a {
   background-color: #f2f2f2;
 }
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 768px) {
   .book-detail {
     flex-direction: column;
     margin: 1.5rem;
