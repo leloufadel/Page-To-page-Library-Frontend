@@ -6,12 +6,15 @@ import {
 } from 'react-icons/fa';
 import { TiMediaPlayReverseOutline, TiMediaPlayOutline } from 'react-icons/ti';
 import { BsTwitter } from 'react-icons/bs';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper.min.css';
+import 'swiper/swiper-bundle.css';
 
 const MainPage = () => {
   const books = useSelector((state) => state.books);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const booksPerPage = 3;
+ const booksPerPage = 3;
 
   // Logic for displaying books that current page is 1 and (1-1) * 3 = 0
   const startIndex = (currentPage - 1) * booksPerPage;
@@ -41,7 +44,7 @@ const MainPage = () => {
           <p>Choose a book to see more details</p>
         </div>
         <ul className="book-list">
-          <button type="button" className="btn" aria-label="Previous" onClick={handlePrevPage}>
+          <button type="button" className="swipe-btn-1" aria-label="Previous" onClick={handlePrevPage}>
             <TiMediaPlayReverseOutline />
           </button>
           {displayedBooks.map((book) => (
