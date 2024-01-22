@@ -10,6 +10,7 @@ const url = 'http://localhost:3000/api/reservations?user_id=1';
 
 export const getReservations = createAsyncThunk('reservations/getReservations', async () => {
   const response = await axios.get(url);
+  console.log(response.data);
   return response.data;
 });
 

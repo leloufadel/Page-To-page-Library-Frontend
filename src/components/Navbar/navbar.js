@@ -54,7 +54,7 @@ const SideNav = () => {
             </NavLink>
           </li>
           <li className="sidenav-item">
-            <NavLink to="/ReservationList" className="sidenav-link" onClick={toggleSidebar}>
+            <NavLink to="/myreservations" className="sidenav-link" onClick={toggleSidebar}>
               Reservations -
             </NavLink>
           </li>

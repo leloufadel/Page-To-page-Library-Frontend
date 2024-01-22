@@ -7,18 +7,25 @@ const ReservationList = () => {
 
   return (
     <div>
-      <h2>Your Reservations!</h2>
+      <h2>Your borrowed books</h2>
       <ul>
         {reservations.reservations.map((res) => (
           <li key={res.id}>
+            <ul>
+              {res.books.map((book) => ((
+                <li key={book.id}>
+                  {book.name}
+                </li>
+              )))}
+            </ul>
             <p>{res.due_date}</p>
             <p>{res.date}</p>
             <p>{res.city}</p>
-            <NavLink to="/ResrvationForm">
-              Add reservations
-            </NavLink>
           </li>
         ))}
+        <NavLink to="/ReservationForm">
+          Add reservations
+        </NavLink>
       </ul>
     </div>
   );
