@@ -63,6 +63,11 @@ const SideNav = () => {
               Login
             </NavLink>
           </li>
+          <li className="sidenav-item">
+            <NavLink to="/newreservation" className="sidenav-link" onClick={toggleSidebar}>
+              New Reservation
+            </NavLink>
+          </li>
         </ul>
         <div className="sidenav-footer">
           <ul className="sidebar-socials">
