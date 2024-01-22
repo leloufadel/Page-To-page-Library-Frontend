@@ -7,6 +7,7 @@ import SideNav from './components/Navbar/navbar';
 import Login from './components/login';
 import BookDetail from './components/BookDetail';
 import MainPage from './components/MainPage';
+import ReservationList from './components/Reservations/ReservationList';
 import './App.css';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/mainpage" element={<MainPage />} />
         <Route path="/books/:name" element={<BookDetail />} />
+        <Route path="/ReservationList" element={<ReservationList />} />
       </Routes>
     </>
   );
