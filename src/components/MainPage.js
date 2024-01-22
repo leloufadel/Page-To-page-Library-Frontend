@@ -56,20 +56,17 @@ const MainPage = () => {
             />
           </button>
           <Swiper
-            onSlideChange={() => console.log('slide change')}
+            onSlideChange={() => ('slide change')}
             onSwiper={(swiper) => {
-              console.log(swiper);
               swiperRef.current = swiper;
             }}
-            slidesPerView={2} // Display 3 books per slide
-            // spaceBetween={10} // Adjust the space between slides as needed
+            slidesPerView={2}
           >
             {displayedBooks.map((book) => (
               <SwiperSlide key={book.id}>
                 <Link to={`/books/${book.name}`}>
                   <img className="img" src={book.image} alt="book" />
                   <h2>{book.name}</h2>
-                  {/* ... other book details */}
                   <p>{book.category}</p>
                   <p>{book.info}</p>
                   <div className="icons">
