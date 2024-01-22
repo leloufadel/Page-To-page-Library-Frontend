@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
 import '../stylesheets/login.css';
-import { useNavigate } from 'react-router-dom';
 import Login from './user/login';
+import Signup from './user/sighnup';
 
 const Splach = () => {
-  const navigate = useNavigate();
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
+  const [isSignUpModalOpen, setSignUpModalOpen] = useState(false);
 
   const closeLoginModal = () => {
     setLoginModalOpen(false);
+    setSignUpModalOpen(false);
   };
   const handleLogin = () => {
     setLoginModalOpen(true);
-    //  navigate('/login');
   };
   const handleSginup = () => {
-    navigate('/signup');
+    setSignUpModalOpen(true);
   };
+
   return (
     <div className="auth-body">
 
@@ -27,6 +28,7 @@ const Splach = () => {
           {isLoginModalOpen && <Login onClose={closeLoginModal} />}
         </>
         <button type="button" className="btn" onClick={handleSginup}>sign up</button>
+        {isSignUpModalOpen && <Signup onClose={closeLoginModal} />}
       </div>
     </div>
   );
