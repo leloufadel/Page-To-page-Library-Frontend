@@ -106,7 +106,7 @@
 
 h2 {
   color: black;
-  font-weight: 900px;
+  font-weight: 800;
   margin: 0;
   letter-spacing: 2px;
   font-size: 1.1rem;
@@ -121,10 +121,10 @@ h2 {
 
 .icons > * {
   background-color: white;
-  border: 1.4px solid gray; 
+  border: 1.4px solid gray;
   border-radius: 50%;
   padding: 9px;
-  font-size: 10px; 
+  font-size: 10px;
   width: 30px;
   height: 30px;
   display: flex;
@@ -132,6 +132,6 @@ h2 {
   justify-content: center;
   text-align: center;
   text-decoration: none;
+
   /* margin: 5px 2px; */
 }
-

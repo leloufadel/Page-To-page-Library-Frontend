@@ -66,23 +66,21 @@ const MainPage = () => {
           >
             {displayedBooks.map((book) => (
               <SwiperSlide key={book.id}>
-                <Link to={`/books/${book.name}`}>
-          <div className="Books-package-n">
-          <img className="img" src={book.image} alt="book" />
-                  <h2>{book.name}</h2>
-        <div className="books-sub-heading">
-          <p>{book.category}</p>
-          <p>{book.info}</p>
-          <p className="books-line">------------------------</p>
-                 
-                  
-          <div className="icons">
-          <FaFacebookF className="icon" />
-          <BsTwitter className="icon" />
-          <FaVimeoV className="icon" />
-          </div>
+                <Link to={`/books/${book.id}`}>
+                  <div className="Books-package-n">
+                    <img className="img" src={book.image} alt="book" />
+                    <h2>{book.name}</h2>
+                    <div className="books-sub-heading">
+                      <p className="books-line">------------------------</p>
+                      <p>{book.info}</p>
 
-                  </div>
+                      <div className="icons">
+                        <FaFacebookF className="icon" />
+                        <BsTwitter className="icon" />
+                        <FaVimeoV className="icon" />
+                      </div>
+
+                    </div>
                   </div>
                 </Link>
               </SwiperSlide>
