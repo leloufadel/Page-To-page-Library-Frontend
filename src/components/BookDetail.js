@@ -29,6 +29,10 @@ function BookDetail() {
                   <td>{findBook.author}</td>
                 </tr>
                 <tr>
+                  <th scope="row">Book Info</th>
+                  <td>{findBook.info}</td>
+                </tr>
+                <tr>
                   <th scope="row">Book Category</th>
                   <td>{findBook.category}</td>
                 </tr>
