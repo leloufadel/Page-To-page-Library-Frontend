@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { createBooks, fetchBooks } from '../redux/bookSlice';
+import { createBooks, fetchBooks, getBooks } from '../redux/bookSlice';
 
 const BookForm = () => {
   const [name, setName] = useState('');
@@ -25,7 +25,7 @@ const BookForm = () => {
       info,
     };
     await dispatch(createBooks(newBooks));
-    await dispatch(fetchBooks());
+    // await dispatch(getBooks());
     setName('');
     setImage('');
     setAuthor('');
