@@ -33,7 +33,7 @@ const userSlice = createSlice({
       }
       if (state.isLoggedIn) {
         toast.success(action.payload.data.message);
-      } 
+      }
     },
     setUserInfoFromToken: (state, action) => {
       state.user = action.payload.data.user;
@@ -77,7 +77,6 @@ export const loginUser = (payload) => async (dispatch) => {
     if (error.response && error.response.status === 401) {
       toast.error('Invalid email or password. Please try again.');
       throw new Error('Invalid email or password. Please try again.');
-      
     } else {
       toast.error('An unexpected error occurred. Please try again later.');
       throw new Error('An unexpected error occurred. Please try again later.');
