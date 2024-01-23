@@ -18,7 +18,7 @@ function BookDetail() {
         <p className="detail-title">Book Detail page</p>
         <div className="book-detail">
           <div className="book-image">
-            <img className="img" src={findBook.image} alt={findBook.name} />
+            <img className="img" src={findBook.cover_photo} alt={findBook.name} />
           </div>
           <div className="book-details">
             <h3>{findBook.name}</h3>

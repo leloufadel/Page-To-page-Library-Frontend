@@ -47,7 +47,7 @@ const MainPage = () => {
           {displayedBooks.map((book) => (
             <li key={book.id}>
               <Link to={`/books/${book.name}`}>
-                <img className="img" src={book.image} alt="book" />
+                <img className="img" src={book.cover_photo} alt="book" />
                 <h2>{book.name}</h2>
                 ....................
                 <br />
