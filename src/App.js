@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch } from 'react-redux';
 import { getBooks } from './redux/bookSlice';
 import Splash from './components/Splash';
@@ -7,8 +9,6 @@ import BookDetail from './components/BookDetail';
 import MainPage from './components/MainPage';
 import './App.css';
 import Logout from './components/user/logout';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const dispatch = useDispatch();

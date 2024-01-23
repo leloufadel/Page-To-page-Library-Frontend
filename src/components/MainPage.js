@@ -103,7 +103,7 @@ const MainPage = () => {
               alt="slide"
             />
           </button>
-<ToastContainer />
+          <ToastContainer />
         </div>
       </div>
     </>
