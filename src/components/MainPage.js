@@ -11,7 +11,7 @@ import '../stylesheets/mainpage.css';
 const MainPage = () => {
   const books = useSelector((state) => state.books);
   const [currentPage] = useState(1);
-  const booksPerPage = 3;
+  const booksPerPage = 4;
 
   const startIndex = (currentPage - 1) * booksPerPage;
   const endIndex = startIndex + booksPerPage;
@@ -62,13 +62,16 @@ const MainPage = () => {
             onSwiper={(swiper) => {
               swiperRef.current = swiper;
             }}
-            slidesPerView={2}
+            slidesPerView={3}
           >
             {displayedBooks.map((book) => (
               <SwiperSlide key={book.id}>
                 <Link to={`/books/${book.id}`}>
                   <div className="Books-package-n">
-                    <img className="img" src={book.image} alt="book" />
+                    <div className="circle-container">
+                      <div className="circle" />
+                      <img className="book-image" src={book.cover_photo} alt={book.name} />
+                    </div>
                     <h2>{book.name}</h2>
                     <div className="books-sub-heading">
                       <p className="books-line">------------------------</p>
