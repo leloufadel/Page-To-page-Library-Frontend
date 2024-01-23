@@ -29,7 +29,7 @@ a {
   gap: 8rem;
 }
 
-.book-image {
+.book-images {
   width: 400px;
   height: 400px;
   border: 1px solid #ddd;
@@ -74,7 +74,7 @@ a {
     gap: 1.5rem;
   }
 
-  .book-image {
+  .book-images {
     width: 200px;
     height: 200px;
     border: 1px solid #ddd;
