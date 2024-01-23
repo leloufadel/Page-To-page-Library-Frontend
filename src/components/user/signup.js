@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import '../../stylesheets/login.css';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerUser } from '../../redux/user/userSlice'; // تحديث باستخدام الأفعال الفعلية
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { registerUser } from '../../redux/user/userSlice';
 
 const Signup = ({ onClose }) => {
   const dispatch = useDispatch();
@@ -31,7 +33,7 @@ const Signup = ({ onClose }) => {
       dispatch(registerUser(data));
       resetData();
     } catch (error) {
-      console.log(error);
+      toast.error('Sign up Error:', error);
     }
   };
   const handleCancelLogout = () => {
@@ -51,6 +53,7 @@ const Signup = ({ onClose }) => {
               value={signUpName}
               onChange={(e) => setSignUpName(e.target.value)}
               placeholder="Name"
+              required
             />
             <br />
             <input
@@ -59,6 +62,7 @@ const Signup = ({ onClose }) => {
               value={signUpEmail}
               onChange={(e) => setSignUpEmail(e.target.value)}
               placeholder="Email"
+              required
             />
             <br />
             <input
@@ -67,12 +71,12 @@ const Signup = ({ onClose }) => {
               value={signUpPassword}
               onChange={(e) => setSignUpPassword(e.target.value)}
               placeholder="Password"
+              required
             />
             <br />
             <input type="submit" value="Sign up" className="btn2" />
-            <button type="button" onClick={handleCancelLogout} className="btn2">
-              Cancel
-            </button>
+            <input type="button" value="Cancel" className="btn2" onClick={handleCancelLogout} />
+            <ToastContainer />
           </form>
         </div>
       </div>

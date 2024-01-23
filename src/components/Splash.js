@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import '../stylesheets/login.css';
-import { useNavigate } from 'react-router-dom';
 import Login from './user/login';
+import Signup from './user/signup';
 
 const Splash = () => {
-  const navigate = useNavigate();
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
+  const [isSignUpModalOpen, setSignUPModalOpen] = useState(false);
 
   const closeLoginModal = () => {
     setLoginModalOpen(false);
+    setSignUPModalOpen(false);
   };
   const handleLogin = () => {
     setLoginModalOpen(true);
-    //  navigate('/login');
   };
   const handleSginup = () => {
-    navigate('/signup');
+    setSignUPModalOpen(true);
   };
   return (
     <div className="auth-body">
@@ -27,6 +27,7 @@ const Splash = () => {
           {isLoginModalOpen && <Login onClose={closeLoginModal} />}
         </>
         <button type="button" className="btn" onClick={handleSginup}>sign up</button>
+        {isSignUpModalOpen && <Signup onClose={closeLoginModal} />}
       </div>
     </div>
   );

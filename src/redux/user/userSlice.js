@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const BASE_URL = 'http://localhost:3000/';
 
@@ -30,11 +31,17 @@ const userSlice = createSlice({
       if (action.payload?.headers && typeof action.payload.headers.entries === 'function') {
         state.headers = Object.fromEntries(Array.from(action.payload.headers.entries()));
       }
+      if (state.isLoggedIn) {
+        toast.success(action.payload.data.message);
+      } 
     },
     setUserInfoFromToken: (state, action) => {
       state.user = action.payload.data.user;
       state.isLoggedIn = action.payload.data.loading;
       state.auth_token = localStorage.getItem('auth_token'); state.isLoggedIn = true;
+      if (state.isLoggedIn) {
+        toast.success(action.payload.data.message);
+      }
     },
     resetUserInfo: (state) => {
       state.isLoggedIn = false;
@@ -68,8 +75,11 @@ export const loginUser = (payload) => async (dispatch) => {
     return response.data;
   } catch (error) {
     if (error.response && error.response.status === 401) {
+      toast.error('Invalid email or password. Please try again.');
       throw new Error('Invalid email or password. Please try again.');
+      
     } else {
+      toast.error('An unexpected error occurred. Please try again later.');
       throw new Error('An unexpected error occurred. Please try again later.');
     }
   }

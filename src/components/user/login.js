@@ -2,41 +2,45 @@ import React, { useState, useEffect } from 'react';
 import '../../stylesheets/login.css';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-// just having that weird error, that's why I put the comment
-// eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { loginUser } from '../../redux/user/userSlice';
 
 const Login = ({ onClose }) => {
-  const { isLoggedIn = false } = useSelector((state) => state.users);
+  const { isLoggedIn } = useSelector((state) => state.users);
   const showModal = useSelector((state) => state.modal.showModal);
 
   const dispatch = useDispatch();
 
-  const [loginEmail, setLoginEmail] = useState(null);
-  const [loginPassword, setLoginPassword] = useState(null);
+  const [loginEmail, setLoginEmail] = useState('');
+  const [loginPassword, setLoginPassword] = useState('');
   const navigate = useNavigate();
 
   const resetData = () => {
-    setLoginEmail(null);
-    setLoginPassword(null);
+    setLoginEmail('');
+    setLoginPassword('');
   };
 
   useEffect(() => {
-    if (loginEmail != null && loginPassword != null) {
+    if (loginEmail !== '' && loginPassword !== '') {
       const data = {
         user: {
           email: loginEmail,
           password: loginPassword,
         },
       };
-      dispatch(loginUser(data));
-      if (isLoggedIn) {
-        navigate('/home');
-        resetData();
+      try {
+        dispatch(loginUser(data));
+        if (isLoggedIn) {
+          navigate('/home');
+          resetData();
+        }
+      } catch (error) {
+        toast.error(`Sign In Error: ${error.message}`);
       }
     }
-  }, [loginEmail, loginPassword, isLoggedIn, dispatch, navigate]);
+  });
 
   const handleCancelLogout = () => {
     onClose();
@@ -55,6 +59,7 @@ const Login = ({ onClose }) => {
                 value={loginEmail}
                 onChange={(e) => setLoginEmail(e.target.value)}
                 placeholder="Email"
+                required
               />
               <br />
               <input
@@ -63,12 +68,12 @@ const Login = ({ onClose }) => {
                 value={loginPassword}
                 onChange={(e) => setLoginPassword(e.target.value)}
                 placeholder="Password"
+                required
               />
               <br />
               <input type="submit" value="Login" className="btn2" />
-              <button type="button" onClick={handleCancelLogout} className="btn2">
-                Cancel
-              </button>
+              <input type="button" value="Cancel" className="btn2" onClick={handleCancelLogout} />
+              <ToastContainer />
             </form>
           </div>
         </div>
