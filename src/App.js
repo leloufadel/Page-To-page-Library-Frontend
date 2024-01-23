@@ -5,6 +5,7 @@ import { getBooks } from './redux/bookSlice';
 import { getReservations } from './redux/reservationSlice';
 import SideNav from './components/Navbar/navbar';
 import Login from './components/login';
+import Bookform from './components/bookform';
 import BookDetail from './components/BookDetail';
 import MainPage from './components/MainPage';
 import ReservationList from './components/Reservations/ReservationList';
@@ -25,6 +26,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/mainpage" element={<MainPage />} />
+        <Route path="/bookform" element={<Bookform/>} />
         <Route path="/books/:name" element={<BookDetail />} />
         <Route path="/myreservations" element={<ReservationList />} />
         <Route path="/newreservation" element={<ReservationForm />} />
