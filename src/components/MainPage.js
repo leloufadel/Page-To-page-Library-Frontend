@@ -7,11 +7,13 @@ import { BsTwitter } from 'react-icons/bs';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/bundle';
+import '../stylesheets/mainpage.css';
 
 const MainPage = () => {
   const books = useSelector((state) => state.books);
   const [currentPage] = useState(1);
   const booksPerPage = 3;
+  const booksPerPage = 4;
 
   const startIndex = (currentPage - 1) * booksPerPage;
   const endIndex = startIndex + booksPerPage;
@@ -37,12 +39,14 @@ const MainPage = () => {
 
   return (
     <>
-      <div className="list">
-        <div className="title">
-          <h1>Book library</h1>
-          <p>Choose a book to see more details</p>
+      <div className="Books-package d-flex justify-content-center align-items-center">
+        <div className="text-center">
+          <h1 className="books-heading">Book library</h1>
+          <p className="books-sub-heading">Choose a book to see more details</p>
+          <p className="books-line">------------------------</p>
+
         </div>
-        <ul className="book-list">
+        <div className="Books-list">
           <button
             type="button"
             className="swipe-btn-1"
@@ -55,6 +59,7 @@ const MainPage = () => {
               alt="slide"
             />
           </button>
+
           <Swiper
             onSlideChange={() => ('slide change')}
             onSwiper={(swiper) => {
@@ -73,6 +78,31 @@ const MainPage = () => {
                     <FaFacebookF />
                     <BsTwitter />
                     <FaVimeoV />
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            slidesPerView={3}
+          >
+            {displayedBooks.map((book) => (
+              <SwiperSlide key={book.id}>
+                <Link to={`/books/${book.id}`}>
+                  <div className="Books-package-n">
+                    <div className="circle-container">
+                      <div className="circle" />
+                      <img className="book-image" src={book.cover_photo} alt={book.name} />
+                    </div>
+                    <h2>{book.name}</h2>
+                    <div className="books-sub-heading">
+                      <p className="books-line">------------------------</p>
+                      <p>{book.info}</p>
+
+                      <div className="icons">
+                        <FaFacebookF className="icon" />
+                        <BsTwitter className="icon" />
+                        <FaVimeoV className="icon" />
+                      </div>
+
+                    </div>
                   </div>
                 </Link>
               </SwiperSlide>
@@ -80,14 +110,18 @@ const MainPage = () => {
           </Swiper>
           <button
             type="button"
-            className="btn"
+            className="swipe-btn-2"
             aria-label="Next"
             onClick={handleNextSlide}
-            disabled={endIndex >= books.books.length}
           >
-            <TiMediaPlayOutline />
+            <img
+              className="slide-button"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAO9JREFUSEu1ltENwjAQQ+1NYBOYBDoJZRLYhI7STYwsJShSmyZNyX2icu9sX08lOhc798cqQNILwAXAleR8ZIgcQKGpm79JPlshJUDsa1CTmhLgDOAD4ASgSc0mgCQlufkNwBjkTACG2myKgOiRpDuAx1411QCDVtSMpQXYBUjUWEm0zNnYMlu3qCZAoia+L/5pVU0zIGPZTNKb96tDgABJ7ZpIXv8CCIH3sUhSn5BXpvadGrbuVHUGknxdfTZcm6u5K4MwtS3xm+xaBNmswBc0mTq760cA3c9109Q1GcT9zt6YLVuKgNo/1zzX/aviCyWOnxkFdwrCAAAAAElFTkSuQmCC"
+              alt="slide"
+            />
           </button>
-        </ul>
+
+        </div>
       </div>
     </>
   );
