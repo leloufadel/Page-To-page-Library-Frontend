@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import '../../stylesheets/login.css';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+// just having that weird error, that's why I put the comment
+// eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 import { loginUser } from '../../redux/user/userSlice';
 
@@ -20,22 +22,21 @@ const Login = ({ onClose }) => {
     setLoginPassword(null);
   };
 
-  const onLogin = (event) => {
-    event.preventDefault();
-    if (isLoggedIn) {
-      navigate('/home');
-      resetData();
-    }
-  };
   useEffect(() => {
-    const data = {
-      user: {
-        email: loginEmail,
-        password: loginPassword,
-      },
-    };
-    if (loginEmail != null && loginPassword != null) dispatch(loginUser(data));
-  }, [onLogin]);
+    if (loginEmail != null && loginPassword != null) {
+      const data = {
+        user: {
+          email: loginEmail,
+          password: loginPassword,
+        },
+      };
+      dispatch(loginUser(data));
+      if (isLoggedIn) {
+        navigate('/home');
+        resetData();
+      }
+    }
+  }, [loginEmail, loginPassword, isLoggedIn, dispatch, navigate]);
 
   const handleCancelLogout = () => {
     onClose();
@@ -47,7 +48,7 @@ const Login = ({ onClose }) => {
         <div className="modal-overlay">
           <div className="logout-modal add-pading">
             <h3>Login!</h3>
-            <form onSubmit={onLogin} className="login-form">
+            <form className="login-form">
               <input
                 className="login-form-email"
                 type="text"
