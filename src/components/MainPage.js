@@ -1,8 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FaFacebookF, FaVimeoV } from 'react-icons/fa';
-// import { TiMediaPlayOutline } from 'react-icons/ti';
 import { BsTwitter } from 'react-icons/bs';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -10,14 +9,27 @@ import 'swiper/css/bundle';
 import '../stylesheets/mainpage.css';
 
 const MainPage = () => {
-  const books = useSelector((state) => state.books);
-  const [currentPage] = useState(1);
-  const booksPerPage = 3;
-  // const booksPerPage = 4;
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      const isMobileScreen = window.innerWidth <= 768;
+      setIsMobile(isMobileScreen);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
 
-  const startIndex = (currentPage - 1) * booksPerPage;
-  const endIndex = startIndex + booksPerPage;
-  const displayedBooks = books.books.slice(startIndex, endIndex);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const books = useSelector((state) => state.books);
+  // const [currentPage] = useState(1);
+  // const booksPerPage = isMobile ? 1 : 6;
+
+  // const startIndex = (currentPage - 1) * booksPerPage;
+  // const endIndex = startIndex + booksPerPage;
+  const displayedBooks = books.books;
 
   const swiperRef = useRef(null);
 
@@ -45,7 +57,39 @@ const MainPage = () => {
           <p className="books-sub-heading">Choose a book to see more details</p>
           <p className="books-line">------------------------</p>
         </div>
-        <div className="Books-list">
+        {isMobile && (
+          
+          <div className="mobile-books">
+            <div className="text-center">
+          <h1 className="books-heading">Book library</h1>
+          <p className="books-sub-heading">Choose a book to see more details</p>
+          <p className="books-line">------------------------</p>
+        </div>
+            {displayedBooks.map((book) => (
+              <Link key={book.id} to={`/books/${book.id}`}>
+                <div className="mobile-book">
+                  <div className="circle-container">
+                    <div className="circle" />
+                    <img className="book-image" src={book.cover_photo} alt={book.name} />
+                  </div>
+                  <h2>{book.name}</h2>
+                  <div className="books-sub-heading">
+                    <p className="books-line">------------------------</p>
+                    <p>{book.info}</p>
+
+                    <div className="icons">
+                      <FaFacebookF className="icon" />
+                      <BsTwitter className="icon" />
+                      <FaVimeoV className="icon" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+              ))}
+              </div>
+            )}
+
+        {!isMobile && (<div className="Books-list">
           <button
             type="button"
             className="swipe-btn-1"
@@ -60,16 +104,15 @@ const MainPage = () => {
           </button>
 
           <Swiper
-            onSlideChange={() => ('slide change')}
             onSwiper={(swiper) => {
               swiperRef.current = swiper;
             }}
-            slidesPerView={2}
+            slidesPerView={isMobile ? 1 : 3}
           >
             {displayedBooks.map((book) => (
               <SwiperSlide key={book.id}>
                 <Link to={`/books/${book.id}`}>
-                  <div className="Books-package-n">
+                  <div className="Books-package">
                     <div className="circle-container">
                       <div className="circle" />
                       <img className="book-image" src={book.cover_photo} alt={book.name} />
@@ -91,6 +134,7 @@ const MainPage = () => {
               </SwiperSlide>
             ))}
           </Swiper>
+
           <button
             type="button"
             className="swipe-btn-2"
@@ -104,7 +148,8 @@ const MainPage = () => {
             />
           </button>
 
-        </div>
+        </div>)}
+
       </div>
     </>
   );
