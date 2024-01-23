@@ -29,7 +29,7 @@ function App() {
         <Route path="/logout" element={<Logout onClose={handleClose} />} />
         <Route path="/home" element={<Home />} />
         <Route path="/mainpage" element={<MainPage />} />
-        <Route path="/books/:name" element={<BookDetail />} />
+        <Route path="/books/:id" element={<BookDetail />} />
       </Routes>
     </>
   );
