@@ -7,6 +7,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/bundle';
 import '../stylesheets/mainpage.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MainPage = () => {
   const books = useSelector((state) => state.books);
@@ -101,7 +103,7 @@ const MainPage = () => {
               alt="slide"
             />
           </button>
-
+<ToastContainer />
         </div>
       </div>
     </>

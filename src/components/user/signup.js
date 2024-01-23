@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import '../../stylesheets/login.css';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 import { registerUser } from '../../redux/user/userSlice';
 
 const Signup = ({ onClose }) => {
@@ -76,7 +75,6 @@ const Signup = ({ onClose }) => {
             <br />
             <input type="submit" value="Sign up" className="btn2" />
             <input type="button" value="Cancel" className="btn2" onClick={handleCancelLogout} />
-            <ToastContainer />
           </form>
         </div>
       </div>

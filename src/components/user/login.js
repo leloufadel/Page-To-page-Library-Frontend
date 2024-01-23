@@ -3,8 +3,7 @@ import '../../stylesheets/login.css';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 import { loginUser } from '../../redux/user/userSlice';
 
 const Login = ({ onClose }) => {
@@ -33,7 +32,7 @@ const Login = ({ onClose }) => {
       try {
         dispatch(loginUser(data));
         if (isLoggedIn) {
-          navigate('/home');
+          navigate('/mainpage');
           resetData();
         }
       } catch (error) {
@@ -73,7 +72,6 @@ const Login = ({ onClose }) => {
               <br />
               <input type="submit" value="Login" className="btn2" />
               <input type="button" value="Cancel" className="btn2" onClick={handleCancelLogout} />
-              <ToastContainer />
             </form>
           </div>
         </div>

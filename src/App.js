@@ -7,7 +7,8 @@ import BookDetail from './components/BookDetail';
 import MainPage from './components/MainPage';
 import './App.css';
 import Logout from './components/user/logout';
-import Home from './components/Home/home';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ function App() {
   const navigate = useNavigate();
 
   const handleClose = () => {
-    navigate('/home');
+    navigate('/mainpage');
   };
 
   return (
@@ -27,10 +28,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Splash />} />
         <Route path="/logout" element={<Logout onClose={handleClose} />} />
-        <Route path="/home" element={<Home />} />
         <Route path="/mainpage" element={<MainPage />} />
         <Route path="/books/:id" element={<BookDetail />} />
       </Routes>
+      <ToastContainer />
     </>
   );
 }
