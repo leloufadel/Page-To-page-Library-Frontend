@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getBooks } from './redux/bookSlice';
-import Splach from './components/Splach';
+import Splash from './components/Splash';
 import Login from './components/user/login';
 import Signup from './components/user/sighnup';
 import BookDetail from './components/BookDetail';
@@ -18,12 +18,18 @@ function App() {
     dispatch(getBooks());
   });
 
+  const navigate = useNavigate();
+
+  const handleClose = () => {
+    navigate('/home');
+  };
+
   return (
     <>
       <Routes>
-        <Route path="/" element={<Splach />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/logout" element={<Logout />} />
+        <Route path="/" element={<Splash />} />
+        <Route path="/login" element={<Login onClose={handleClose} />} />
+        <Route path="/logout" element={<Logout onClose={handleClose} />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/home" element={<Home />} />
         <Route path="/mainpage" element={<MainPage />} />
