@@ -5,8 +5,8 @@ import { useSelector } from 'react-redux';
 function BookDetail() {
   const books = useSelector((state) => state.books);
 
-  const { name } = useParams();
-  const findBook = books.books.find((book) => book.name === name);
+  const { id } = useParams();
+  const findBook = books.books.find((book) => book.id === parseInt(id, 10));
 
   if (!findBook) {
     return <h2>Book not found</h2>;
