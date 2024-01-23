@@ -9,6 +9,7 @@ import 'swiper/css/bundle';
 import '../stylesheets/mainpage.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SideNav from './Navbar/navbar'
 
 const MainPage = () => {
   const books = useSelector((state) => state.books);
@@ -39,6 +40,7 @@ const MainPage = () => {
 
   return (
     <>
+    <SideNav />
       <div className="Books-package d-flex justify-content-center align-items-center">
         <div className="text-center">
           <h1 className="books-heading">Book library</h1>
