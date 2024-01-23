@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { getBooks } from './redux/bookSlice';
 import Splash from './components/Splash';
 import Login from './components/user/login';
-import Signup from './components/user/sighnup';
+import Signup from './components/user/signup';
 import BookDetail from './components/BookDetail';
 import MainPage from './components/MainPage';
 import './App.css';
