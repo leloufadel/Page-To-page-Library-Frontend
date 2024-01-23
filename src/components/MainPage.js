@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FaFacebookF, FaVimeoV } from 'react-icons/fa';
+// import { TiMediaPlayOutline } from 'react-icons/ti';
 import { BsTwitter } from 'react-icons/bs';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -11,7 +12,8 @@ import '../stylesheets/mainpage.css';
 const MainPage = () => {
   const books = useSelector((state) => state.books);
   const [currentPage] = useState(1);
-  const booksPerPage = 4;
+  const booksPerPage = 3;
+  // const booksPerPage = 4;
 
   const startIndex = (currentPage - 1) * booksPerPage;
   const endIndex = startIndex + booksPerPage;
@@ -42,7 +44,6 @@ const MainPage = () => {
           <h1 className="books-heading">Book library</h1>
           <p className="books-sub-heading">Choose a book to see more details</p>
           <p className="books-line">------------------------</p>
-
         </div>
         <div className="Books-list">
           <button
@@ -59,10 +60,11 @@ const MainPage = () => {
           </button>
 
           <Swiper
+            onSlideChange={() => ('slide change')}
             onSwiper={(swiper) => {
               swiperRef.current = swiper;
             }}
-            slidesPerView={3}
+            slidesPerView={2}
           >
             {displayedBooks.map((book) => (
               <SwiperSlide key={book.id}>
