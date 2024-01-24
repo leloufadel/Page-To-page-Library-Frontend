@@ -8,6 +8,7 @@ import { AiOutlineCopyrightCircle } from 'react-icons/ai';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import logoImage from '../../Assets/logolibrary.png';
 import '../../stylesheets/navbar.css';
+import Logout from '../user/logout';
 
 const SideNav = () => {
   const [isNavVisible, setNavVisible] = useState(false);
@@ -15,6 +16,15 @@ const SideNav = () => {
     setNavVisible(!isNavVisible);
   };
 
+  const [isLogoutModalOpen, setLogoutModalOpen] = useState(false);
+
+  const onLogout = () => {
+    setLogoutModalOpen(true);
+  };
+
+  const closeLogoutModal = () => {
+    setLogoutModalOpen(false);
+  };
   return (
     <div className={`nav-container ${isNavVisible ? 'open' : ''} d-flex flex-column align-items-center`}>
 
@@ -59,9 +69,10 @@ const SideNav = () => {
             </NavLink>
           </li>
           <li className="sidenav-item">
-            <NavLink to="/login" className="sidenav-link" onClick={toggleSidebar}>
-              Login
-            </NavLink>
+            <button type="button" className="sidenav-link" onClick={onLogout}>
+              Logout
+            </button>
+            {isLogoutModalOpen && <Logout onClose={closeLogoutModal} />}
           </li>
           <li className="sidenav-item">
             <NavLink to="/newreservation" className="sidenav-link" onClick={toggleSidebar}>
