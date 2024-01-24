@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState,useEffect } from 'react';
 import '../../stylesheets/login.css';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -22,7 +22,14 @@ const Login = ({ onClose }) => {
   };
 
   useEffect(() => {
-    if (loginEmail !== '' && loginPassword !== '') {
+    if (isLoggedIn) {
+      navigate('/mainpage');
+      resetData();
+    }
+  }, [isLoggedIn, navigate]);
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
       const data = {
         user: {
           email: loginEmail,
@@ -30,16 +37,11 @@ const Login = ({ onClose }) => {
         },
       };
       try {
-        dispatch(loginUser(data));
-        if (isLoggedIn) {
-          navigate('/mainpage');
-          resetData();
-        }
+       await dispatch(loginUser(data));
       } catch (error) {
         toast.error(`Sign In Error: ${error.message}`);
       }
-    }
-  });
+  };
 
   const handleCancelLogout = () => {
     onClose();
@@ -70,7 +72,7 @@ const Login = ({ onClose }) => {
                 required
               />
               <br />
-              <input type="submit" value="Login" className="btn2" />
+              <input type="submit" value="Login" className="btn2" onClick={handleLogin} />
               <input type="button" value="Cancel" className="btn2" onClick={handleCancelLogout} />
             </form>
           </div>

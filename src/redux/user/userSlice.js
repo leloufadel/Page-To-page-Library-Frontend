@@ -25,14 +25,16 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     setUserInfo: (state, action) => {
-      state.isLoggedIn = action.payload.data.loading;
       state.user = action.payload?.data.user || initialState.user;
       state.auth_token = String(action.payload?.authorization || '');
       if (action.payload?.headers && typeof action.payload.headers.entries === 'function') {
         state.headers = Object.fromEntries(Array.from(action.payload.headers.entries()));
       }
+      state.isLoggedIn = action.payload.data.loading;
       if (state.isLoggedIn) {
         toast.success(action.payload.data.message);
+      }else{
+        toast.error(action.payload.data.message);
       }
     },
     setUserInfoFromToken: (state, action) => {
