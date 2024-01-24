@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { thunk } from 'redux-thunk';
 import booksReducer from './bookSlice';
-import userReducer from './user/userSlice';
+import userReducer from './userSlice';
 import modalReducer from './modalSlice';
 import reservationsReducer from './reservationSlice';
 
