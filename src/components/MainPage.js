@@ -58,13 +58,13 @@ const MainPage = () => {
           <p className="books-line">------------------------</p>
         </div>
         {isMobile && (
-          
+
           <div className="mobile-books">
             <div className="text-center">
-          <h1 className="books-heading">Book library</h1>
-          <p className="books-sub-heading">Choose a book to see more details</p>
-          <p className="books-line">------------------------</p>
-        </div>
+              <h1 className="books-heading">Book library</h1>
+              <p className="books-sub-heading">Choose a book to see more details</p>
+              <p className="books-line">------------------------</p>
+            </div>
             {displayedBooks.map((book) => (
               <Link key={book.id} to={`/books/${book.id}`}>
                 <div className="mobile-book">
@@ -85,11 +85,12 @@ const MainPage = () => {
                   </div>
                 </div>
               </Link>
-              ))}
-              </div>
-            )}
+            ))}
+          </div>
+        )}
 
-        {!isMobile && (<div className="Books-list">
+        {!isMobile && (
+        <div className="Books-list">
           <button
             type="button"
             className="swipe-btn-1"
@@ -123,10 +124,10 @@ const MainPage = () => {
                       <p>{book.info}</p>
 
                       <div className="icons">
-                        <FaFacebookF className="icon" />
-                        <BsTwitter className="icon" />
-                        <FaVimeoV className="icon" />
-                      </div>
+                <FaFacebookF className="icon" />
+                <BsTwitter className="icon" />
+                <FaVimeoV className="icon" />
+              </div>
 
                     </div>
                   </div>
@@ -148,7 +149,8 @@ const MainPage = () => {
             />
           </button>
 
-        </div>)}
+        </div>
+        )}
 
       </div>
     </>

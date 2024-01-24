@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createBook, getBooks } from '../redux/bookSlice';
+import '../stylesheets/bookform.css';
 
 const BookForm = () => {
   const [name, setName] = useState('');
@@ -36,33 +37,33 @@ const BookForm = () => {
   };
 
   return (
-    <div className="PackageForm">
+    <div className="centered-container">
       <form className="input" onSubmit={handleSubmit}>
-      <div className="mb-3">
-<input type="text" placeholder="Name" id="nameInput" className="form-control" value={name} onChange={(e) => setName(e.target.value)} required />
-</div>
-<div className="mb-3">
-<input type="text" placeholder="Image URL" className="form-control" value={cover_photo} onChange={(e) => setImage(e.target.value)} required />
+        <div className="mb-3">
+          <input type="text" placeholder="Name" id="nameInput" className="form-control" value={name} onChange={(e) => setName(e.target.value)} required />
+        </div>
+        <div className="mb-3">
+          <input type="text" placeholder="Image URL" className="form-control" value={cover_photo} onChange={(e) => setImage(e.target.value)} required />
 
-</div>
-<div className="mb-3">
-<input type="text" placeholder="Author" id="nameInput" className="form-control" value={author} onChange={(e) => setAuthor(e.target.value)} required />
-</div>
+        </div>
+        <div className="mb-3">
+          <input type="text" placeholder="Author" id="nameInput" className="form-control" value={author} onChange={(e) => setAuthor(e.target.value)} required />
+        </div>
 
-<div className="mb-3">
-<input type="text" placeholder="Pblisher" id="nameInput" className="form-control" value={publisher} onChange={(e) => setPublisher(e.target.value)} required />
-</div>
-<div className="mb-3">
-<input type="text" placeholder="publisherDate" id="nameInput" className="form-control" value={publish_date} onChange={(e) => setDate(e.target.value)} required />
-</div>
-<div className="mb-3">
-<input type="text" placeholder="Info" id="nameInput" className="form-control" value={category} onChange={(e) => setCategory(e.target.value)} required />
+        <div className="mb-3">
+          <input type="text" placeholder="Pblisher" id="nameInput" className="form-control" value={publisher} onChange={(e) => setPublisher(e.target.value)} required />
+        </div>
+        <div className="mb-3">
+          <input type="text" placeholder="publisherDate" id="nameInput" className="form-control" value={publish_date} onChange={(e) => setDate(e.target.value)} required />
+        </div>
+        <div className="mb-3">
+          <input type="text" placeholder="Info" id="nameInput" className="form-control" value={category} onChange={(e) => setCategory(e.target.value)} required />
 
-</div>
-<div className="mb-3">
-<input type="text" placeholder="Category" id="nameInput" className="form-control" value={info} onChange={(e) => setInfo(e.target.value)} required />
+        </div>
+        <div className="mb-3">
+          <input type="text" placeholder="Category" id="nameInput" className="form-control" value={info} onChange={(e) => setInfo(e.target.value)} required />
 
-</div>
+        </div>
 
         <button type="submit" className="form-btn">
           Add Book
@@ -73,4 +74,3 @@ const BookForm = () => {
 };
 
 export default BookForm;
- 
