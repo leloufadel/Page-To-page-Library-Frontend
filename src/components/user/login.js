@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../stylesheets/login.css';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -30,17 +30,17 @@ const Login = ({ onClose }) => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-      const data = {
-        user: {
-          email: loginEmail,
-          password: loginPassword,
-        },
-      };
-      try {
-       await dispatch(loginUser(data));
-      } catch (error) {
-        toast.error(`Sign In Error: ${error.message}`);
-      }
+    const data = {
+      user: {
+        email: loginEmail,
+        password: loginPassword,
+      },
+    };
+    try {
+      await dispatch(loginUser(data));
+    } catch (error) {
+      toast.error(`Sign In Error: ${error.message}`);
+    }
   };
 
   const handleCancelLogout = () => {

@@ -33,7 +33,7 @@ const userSlice = createSlice({
       state.isLoggedIn = action.payload.data.loading;
       if (state.isLoggedIn) {
         toast.success(action.payload.data.message);
-      }else{
+      } else {
         toast.error(action.payload.data.message);
       }
     },
@@ -102,7 +102,7 @@ export const logoutUser = () => async (dispatch, getState) => {
       return Promise.reject(error);
     }
   } else {
-    console.error('User or auth_token is undefined');
+    toast.error('User or auth_token is undefined');
     return '';
   }
 };
