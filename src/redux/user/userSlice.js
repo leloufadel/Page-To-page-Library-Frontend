@@ -96,6 +96,7 @@ export const logoutUser = () => async (dispatch, getState) => {
     };
     try {
       await axios.delete(`${BASE_URL}users/sign_out`, config);
+      console.log('User logged out successfully');
       dispatch(resetUserInfo());
       return '';
     } catch (error) {
