@@ -124,10 +124,10 @@ const MainPage = () => {
                       <p>{book.info}</p>
 
                       <div className="icons">
-                <FaFacebookF className="icon" />
-                <BsTwitter className="icon" />
-                <FaVimeoV className="icon" />
-              </div>
+                        <FaFacebookF className="icon" />
+                        <BsTwitter className="icon" />
+                        <FaVimeoV className="icon" />
+                      </div>
 
                     </div>
                   </div>
