@@ -59,12 +59,12 @@ const SideNav = () => {
             </NavLink>
           </li>
           <li className="sidenav-item">
-            <NavLink to="/" className="sidenav-link" onClick={toggleSidebar}>
+            <NavLink to="/ReservationForm" className="sidenav-link" onClick={toggleSidebar}>
               Reservation +
             </NavLink>
           </li>
           <li className="sidenav-item">
-            <NavLink to="/" className="sidenav-link" onClick={toggleSidebar}>
+            <NavLink to="/myreservations" className="sidenav-link" onClick={toggleSidebar}>
               Reservations -
             </NavLink>
           </li>
@@ -73,6 +73,11 @@ const SideNav = () => {
               Logout
             </button>
             {isLogoutModalOpen && <Logout onClose={closeLogoutModal} />}
+          </li>
+          <li className="sidenav-item">
+            <NavLink to="/newreservation" className="sidenav-link" onClick={toggleSidebar}>
+              New Reservation
+            </NavLink>
           </li>
         </ul>
         <div className="sidenav-footer">
