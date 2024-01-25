@@ -49,7 +49,7 @@ const SideNav = () => {
             </NavLink>
           </li>
           <li className="sidenav-item">
-            <NavLink to="/" className="sidenav-link" onClick={toggleSidebar}>
+            <NavLink to="/BookForm" className="sidenav-link" onClick={toggleSidebar}>
               Add Book +
             </NavLink>
           </li>
