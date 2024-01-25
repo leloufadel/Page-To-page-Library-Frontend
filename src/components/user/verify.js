@@ -20,7 +20,7 @@ function Verify() {
         type="token"
         value={token}
         onChange={(e) => setToken(e.target.value)}
-        placeholder="pass"
+        placeholder="token"
         required
       />
       <br />
