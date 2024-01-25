@@ -13,6 +13,7 @@ import ReservationList from './components/Reservations/ReservationList';
 import ReservationForm from './components/Reservations/ReservationForm';
 import Verify from './components/user/verify';
 import SideNav from './components/Navbar/navbar';
+import DeleteBook from './components/DeleteBook';
 import './App.css';
 
 function App() {
@@ -40,7 +41,7 @@ function App() {
         <Route path="/mainpage" element={<MainPage />} />
         <Route path="/bookform" element={<BookForm />} />
         <Route path="/books/:id" element={<BookDetail />} />
-
+        <Route path="/deletebook" element={<DeleteBook />} />
         <Route path="/myreservations" element={<ReservationList />} />
         <Route path="/newreservation" element={<ReservationForm />} />
         <Route path="/verify" element={<Verify />} />
