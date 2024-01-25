@@ -17,15 +17,13 @@ const BookForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newBooks = {
-      book: {
-        name,
-        cover_photo: coverPhoto,
-        author,
-        publisher,
-        publish_date: publishDate,
-        category,
-        info,
-      },
+      name,
+      cover_photo: coverPhoto,
+      author,
+      publisher,
+      publish_date: publishDate,
+      category,
+      info,
     };
     await dispatch(createBook(newBooks));
     await dispatch(getBooks());
