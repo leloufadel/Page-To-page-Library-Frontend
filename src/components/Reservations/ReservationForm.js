@@ -6,7 +6,6 @@ import { createReservation } from '../../redux/reservationSlice';
 const ReservationForm = () => {
   const [date, setDate] = useState('');
   const [city, setCity] = useState('');
-  // const [book, setBook] = useState('');
   const [selectedBooks, setSelectedBooks] = useState([]);
   const books = useSelector((state) => state.books);
 
@@ -15,7 +14,7 @@ const ReservationForm = () => {
   const handleBookSelection = (book) => {
     setSelectedBooks((prevBooks) => [...prevBooks, book.id]);
   };
-  console.log(selectedBooks);
+
   const addReservationHandler = async (e) => {
     e.preventDefault();
 
@@ -23,7 +22,9 @@ const ReservationForm = () => {
       return;
     }
 
-    const selectedDate = new Date(date);
+    // eslint-disable-next-line prefer-const
+    let selectedDate = new Date(date);
+    selectedDate.setDate(selectedDate.getDate() + 10);
     const due_date = selectedDate.toISOString().split('T')[0];
     const newReservation = {
       reservation: {
@@ -42,7 +43,6 @@ const ReservationForm = () => {
   };
 
   const displayedBooks = books.books;
-  console.log(displayedBooks);
 
   return (
     <div className="reservationForm">
