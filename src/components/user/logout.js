@@ -1,24 +1,18 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { logoutUser } from '../../redux/user/userSlice';
 
 const Logout = ({ onClose }) => {
-  const { isLoggedIn } = useSelector((state) => state.users);
   const dispatch = useDispatch();
   const showModal = useSelector((state) => state.modal.showModal);
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (isLoggedIn) {
-      navigate('/');
-    }
-  }, [isLoggedIn, navigate]);
-
   const handleConfirmLogout = () => {
     dispatch(logoutUser());
+    navigate('/');
     onClose();
   };
 
@@ -32,8 +26,8 @@ const Logout = ({ onClose }) => {
         <div className="modal-overlay">
           <div className="logout-modal">
             <p>Are you sure you want to logout?</p>
-            <button type="button" onClick={handleConfirmLogout}>OK</button>
-            <button type="button" onClick={handleCancelLogout}>Cancel</button>
+            <button type="button" onClick={handleConfirmLogout} className="btn2">Ok</button>
+            <button type="button" onClick={handleCancelLogout} className="btn2">Cancel</button>
           </div>
         </div>
       )}

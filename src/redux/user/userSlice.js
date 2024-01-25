@@ -26,10 +26,7 @@ const userSlice = createSlice({
   reducers: {
     setUserInfo: (state, action) => {
       state.user = action.payload?.data.user || initialState.user;
-      state.auth_token = String(action.payload?.authorization || '');
-      if (action.payload?.headers && typeof action.payload.headers.entries === 'function') {
-        state.headers = Object.fromEntries(Array.from(action.payload.headers.entries()));
-      }
+      state.auth_token = localStorage.getItem('token');
       state.isLoggedIn = action.payload.data.loading;
       if (state.isLoggedIn) {
         toast.success(action.payload.data.message);
@@ -40,7 +37,7 @@ const userSlice = createSlice({
     setUserInfoFromToken: (state, action) => {
       state.user = action.payload.data.user;
       state.isLoggedIn = action.payload.data.loading;
-      state.auth_token = localStorage.getItem('auth_token'); state.isLoggedIn = true;
+      state.auth_token = localStorage.getItem('token');
       if (state.isLoggedIn) {
         toast.success(action.payload.data.message);
       }
@@ -49,6 +46,7 @@ const userSlice = createSlice({
       state.isLoggedIn = false;
       state.user = initialState.user;
       state.auth_token = null;
+      localStorage.removeItem('token');
     },
   },
 });
@@ -74,6 +72,7 @@ export const loginUser = (payload) => async (dispatch) => {
       authorization: headers?.authorization || '',
       headers,
     }));
+    localStorage.setItem('token', response.headers.get('Authorization'));
     return response.data;
   } catch (error) {
     if (error.response && error.response.status === 401) {
@@ -87,24 +86,25 @@ export const loginUser = (payload) => async (dispatch) => {
 };
 
 export const logoutUser = () => async (dispatch, getState) => {
-  const { user } = getState();
-  if (user && user.auth_token) {
-    const config = {
-      headers: {
-        authorization: String(user.auth_token),
-      },
-    };
-    try {
+  try {
+    const { user } = getState().users;
+    const token = localStorage.getItem('token');
+    if (user && token) {
+      const config = {
+        headers: {
+          authorization: String(token),
+        },
+      };
       await axios.delete(`${BASE_URL}users/sign_out`, config);
-      // console.log('User logged out successfully');
+      toast.success('User logged out successfully');
       dispatch(resetUserInfo());
       return '';
-    } catch (error) {
-      return Promise.reject(error);
     }
-  } else {
     toast.error('User or auth_token is undefined');
     return '';
+  } catch (error) {
+    toast.error('Error logging out:', error);
+    return Promise.reject(error);
   }
 };
 

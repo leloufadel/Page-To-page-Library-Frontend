@@ -14,7 +14,6 @@ import ReservationForm from './components/Reservations/ReservationForm';
 import SideNav from './components/Navbar/navbar';
 
 import './App.css';
-import Logout from './components/user/logout';
 
 function App() {
   const dispatch = useDispatch();
@@ -26,16 +25,18 @@ function App() {
 
   const navigate = useNavigate();
 
-  const handleClose = () => {
-    navigate('/mainpage');
-  };
+  const token = localStorage.getItem('token');
+  useEffect(() => {
+    if (!token || token == null) {
+      navigate('/');
+    }
+  }, [token, navigate]);
 
   return (
     <>
       <SideNav />
       <Routes>
         <Route path="/" element={<Splash />} />
-        <Route path="/logout" element={<Logout onClose={handleClose} />} />
         <Route path="/mainpage" element={<MainPage />} />
         <Route path="/bookform" element={<BookForm />} />
         <Route path="/books/:id" element={<BookDetail />} />
