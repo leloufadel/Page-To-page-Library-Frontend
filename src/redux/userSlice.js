@@ -20,8 +20,8 @@ const initialState = {
   headers: {},
 };
 
-export const verifyUser = createAsyncThunk('user/verifyUser', async (token) => {
-  const response = await axios.post(`${BASE_URL}verify`, { token });
+export const verifyUser = createAsyncThunk('user/verifyUser', async (pass) => {
+  const response = await axios.post(`${BASE_URL}verify`, pass);
   console.log(response.data);
   return response.data;
 });
