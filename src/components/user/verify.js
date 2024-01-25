@@ -25,7 +25,7 @@ function Verify() {
       />
       <br />
       <button type="submit" onClick={handleVerify} className="form-btn">
-        Add Reservation
+        Verify
       </button>
     </form>
   );
