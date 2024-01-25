@@ -7,6 +7,13 @@
   background-color: rgba(117, 189, 8, 0.545);
 }
 
+.form-title {
+  width: 80%;
+  color: #4caf50; /* Match the color of your form button */
+  font-size: 24px; /* Adjust the font size as needed */
+  margin-bottom: 20px; /* Add some bottom margin for spacing */
+}
+
 .input {
   max-width: 400px;
   width: 100%;
@@ -34,4 +41,19 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+  .centered-container {
+    width: 100%;
+    max-height: none;
+  }
+
+  body {
+    overflow: hidden;
+  }
+
+  .input {
+    padding: 15px;
+  }
 }

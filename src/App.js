@@ -11,6 +11,8 @@ import BookDetail from './components/BookDetail';
 import MainPage from './components/MainPage';
 import ReservationList from './components/Reservations/ReservationList';
 import ReservationForm from './components/Reservations/ReservationForm';
+import SideNav from './components/Navbar/navbar';
+
 import './App.css';
 import Logout from './components/user/logout';
 
@@ -30,6 +32,7 @@ function App() {
 
   return (
     <>
+      <SideNav />
       <Routes>
         <Route path="/" element={<Splash />} />
         <Route path="/logout" element={<Logout onClose={handleClose} />} />
