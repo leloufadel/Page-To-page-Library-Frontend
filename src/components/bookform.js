@@ -17,13 +17,15 @@ const BookForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newBooks = {
-      name,
-      cover_photo: coverPhoto,
-      author,
-      publisher,
-      publish_date: publishDate,
-      category,
-      info,
+      book: {
+        name,
+        cover_photo: coverPhoto,
+        author,
+        publisher,
+        publish_date: publishDate,
+        category,
+        info,
+      },
     };
     await dispatch(createBook(newBooks));
     await dispatch(getBooks());
@@ -52,7 +54,7 @@ const BookForm = () => {
           <input type="text" placeholder="Publisher" id="nameInput" className="form-control" value={publisher} onChange={(e) => setPublisher(e.target.value)} required />
         </div>
         <div className="mb-3">
-          <input type="text" placeholder="Publisher Date" id="nameInput" className="form-control" value={publishDate} onChange={(e) => setPublishDate(e.target.value)} required />
+          <input type="date" placeholder="Publisher Date" id="nameInput" className="form-control" value={publishDate} onChange={(e) => setPublishDate(e.target.value)} required />
         </div>
         <div className="mb-3">
           <input type="text" placeholder="Info" id="nameInput" className="form-control" value={category} onChange={(e) => setCategory(e.target.value)} required />
