@@ -1,26 +1,48 @@
+/* eslint-disable camelcase */
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { createReservation } from '../../redux/reservationSlice';
 
 const ReservationForm = () => {
   const [date, setDate] = useState('');
   const [city, setCity] = useState('');
-  const [book, setBook] = useState('');
+  const [selectedBooks, setSelectedBooks] = useState([]);
+  const books = useSelector((state) => state.books);
 
   const dispatch = useDispatch();
+
+  const handleBookSelection = (book) => {
+    setSelectedBooks((prevBooks) => [...prevBooks, book.id]);
+  };
 
   const addReservationHandler = async (e) => {
     e.preventDefault();
 
-    if (!date || !city || !book) {
+    if (!date || !city || selectedBooks.length === 0) {
       return;
     }
 
-    await dispatch(createReservation([date, city, book]));
+    // eslint-disable-next-line prefer-const
+    let selectedDate = new Date(date);
+    selectedDate.setDate(selectedDate.getDate() + 10);
+    const due_date = selectedDate.toISOString().split('T')[0];
+    const newReservation = {
+      reservation: {
+        date,
+        due_date,
+        city,
+      },
+      book_ids: selectedBooks,
+    };
+
+    await dispatch(createReservation(newReservation));
     setDate('');
     setCity('');
-    setBook('');
+    // setBook('');
+    setSelectedBooks([]);
   };
+
+  const displayedBooks = books.books;
 
   return (
     <div className="reservationForm">
@@ -40,13 +62,16 @@ const ReservationForm = () => {
           placeholder="City"
           className="form-input"
         />
-        <input
-          type="text"
-          value={book}
-          onChange={(e) => setBook(e.target.value)}
-          placeholder="Book"
-          className="form-input"
-        />
+        {displayedBooks.map((book) => (
+          <div key={book.id}>
+            <input
+              type="checkbox"
+              value={book.id}
+              onChange={() => handleBookSelection(book)}
+            />
+            <label htmlFor={book.id}>{book.name}</label>
+          </div>
+        ))}
         <button type="submit" onClick={addReservationHandler} className="form-btn">
           Add Reservation
         </button>
