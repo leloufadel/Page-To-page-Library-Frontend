@@ -16,6 +16,7 @@ const initialState = {
     name: null,
     email: null,
     password: null,
+    role: null,
   },
   headers: {},
 };
@@ -58,7 +59,7 @@ const userSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(verifyUser.fulfilled, (state) => {
-        state.role = 'admin';
+        state.user.role = 'admin';
       });
   },
 });
