@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import '../../stylesheets/login.css';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import { registerUser,loginUser } from '../../redux/user/userSlice';
 import { useNavigate } from 'react-router-dom';
+import { registerUser, loginUser } from '../../redux/user/userSlice';
 
 const Signup = ({ onClose }) => {
   const dispatch = useDispatch();
@@ -20,20 +19,20 @@ const Signup = ({ onClose }) => {
     setSignUpPassword('');
   };
 
-  const signin=(event)=>{ 
+  const signin = (event) => {
     event.preventDefault();
     const data = {
-    user: {
-      email: signUpEmail,
-      password: signUpPassword,
-    },
-  };
+      user: {
+        email: signUpEmail,
+        password: signUpPassword,
+      },
+    };
     dispatch(loginUser(data));
     navigate('/mainpage');
     resetData();
-  }
+  };
 
-  const onSignUp = async(event) => {
+  const onSignUp = async (event) => {
     event.preventDefault();
     const data = {
       user: {
@@ -43,7 +42,7 @@ const Signup = ({ onClose }) => {
       },
     };
     try {
-     await dispatch(registerUser(data));
+      await dispatch(registerUser(data));
       signin(event);
     } catch (error) {
       toast.error('Sign up Error:', error);
@@ -84,9 +83,9 @@ const Signup = ({ onClose }) => {
               placeholder="Password"
               required
             />
-            <div className='btn-form'>
-            <input type="submit" value="Sign up" className="btn2" />
-            <input type="button" value="Cancel" className="btn2" onClick={handleCancelSignup} />
+            <div className="btn-form">
+              <input type="submit" value="Sign up" className="btn2" />
+              <input type="button" value="Cancel" className="btn2" onClick={handleCancelSignup} />
             </div>
           </form>
         </div>

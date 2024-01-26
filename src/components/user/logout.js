@@ -26,8 +26,10 @@ const Logout = ({ onClose }) => {
         <div className="modal-overlay">
           <div className="modal-style ">
             <p>Are you sure you want to logout?</p>
-            <button type="button" onClick={handleConfirmLogout} className="btn2">Ok</button>
-            <button type="button" onClick={handleCancelLogout} className="btn2">Cancel</button>
+            <div className="btn-form">
+              <button type="button" onClick={handleConfirmLogout} className="btn2">Ok</button>
+              <button type="button" onClick={handleCancelLogout} className="btn2">Cancel</button>
+            </div>
           </div>
         </div>
       )}

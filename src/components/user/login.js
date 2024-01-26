@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import '../../stylesheets/login.css';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -70,10 +69,10 @@ const Login = ({ onClose }) => {
                 placeholder="Password"
                 required
               />
-              <div className='btn-form'>
-              <input type="submit" value="Login" className="btn2" onClick={handleLogin} />
-              <input type="button" value="Cancel" className="btn2" onClick={handleCancelLogout} />
-            </div>
+              <div className="btn-form">
+                <input type="submit" value="Login" className="btn2" onClick={handleLogin} />
+                <input type="button" value="Cancel" className="btn2" onClick={handleCancelLogout} />
+              </div>
             </form>
           </div>
         </div>
