@@ -30,21 +30,21 @@
 }
 
 .btn2 {
-  margin: 1rem;
+  margin: 0.5rem;
   padding: 0.3rem;
   font-size: 18px;
   text-align: center;
   background-color: rgb(116, 189, 8);
   border: solid  rgb(116, 189, 8) 1px;
   color: white;
-  width: 150px;
+  width: 50%;
   height: 40px;
-  border-radius: 40px;
+  border-radius: 20px;
 }
 
 .input-text {
   width: 100%;
-  margin: 0.5rem;
+  margin: 0.2rem;
   padding: 0.4rem;
   border-radius: 2px;
   border: solid  rgb(32, 45, 30) 1px;
@@ -72,24 +72,60 @@
   z-index: 10;
 }
 
-.logout-modal {
+.modal-style  {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction:column ;
+  justify-content: center;
   text-align: center;
 }
 
-.logout-modal p {
+.modal-style  p {
   margin-bottom: 20px;
 }
 
-.logout-modal button {
+.modal-style button {
   margin: 0 10px;
   padding: 8px 16px;
   cursor: pointer;
 }
 
-.add-pading {
-  padding: 5rem;
+.log-form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-form{
+  display: flex;
+  width: 100%;
+align-items: center;
+}
+
+@media only screen and (min-width: 375px) {
+  .log-in-up {
+    width: 80%;
+    padding:10% 5% 10% 5%;
+  }
+  .btn-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .log-in-up {
+    width: 40%;
+    padding: 5%;
+  }
+  
+  .btn-form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
 }

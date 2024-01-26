@@ -51,9 +51,9 @@ const Login = ({ onClose }) => {
     <>
       {showModal && (
         <div className="modal-overlay">
-          <div className="logout-modal add-pading">
+          <div className="modal-style log-in-up">
             <h3>Login!</h3>
-            <form className="login-form">
+            <form className="log-form">
               <input
                 className="input-text"
                 type="text"
@@ -62,7 +62,6 @@ const Login = ({ onClose }) => {
                 placeholder="Email"
                 required
               />
-              <br />
               <input
                 className="input-text"
                 type="password"
@@ -71,9 +70,10 @@ const Login = ({ onClose }) => {
                 placeholder="Password"
                 required
               />
-              <br />
+              <div className='btn-form'>
               <input type="submit" value="Login" className="btn2" onClick={handleLogin} />
               <input type="button" value="Cancel" className="btn2" onClick={handleCancelLogout} />
+            </div>
             </form>
           </div>
         </div>
