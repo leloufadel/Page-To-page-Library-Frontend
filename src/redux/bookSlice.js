@@ -14,7 +14,7 @@ export const getBooks = createAsyncThunk('books/getBooks', async () => {
 });
 
 export const createBook = createAsyncThunk('book/createBook', async (newBook) => {
-  const response = await axios.post(url, newBook);
+  const response = await axios.post(url, { book: newBook });
   return response.data;
 });
 
