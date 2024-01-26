@@ -38,6 +38,7 @@ const userSlice = createSlice({
   reducers: {
     setUserInfo: (state, action) => {
       state.user = action.payload?.data.user || initialState.user;
+      state.user.role = action.payload?.data.user.role || initialState.user.role;
       state.auth_token = localStorage.getItem('token');
       state.isLoggedIn = action.payload.data.loading;
       if (state.isLoggedIn) {
@@ -48,6 +49,7 @@ const userSlice = createSlice({
     },
     setUserInfoFromToken: (state, action) => {
       state.user = action.payload.data.user;
+      state.user.role = action.payload.data.user.role;
       state.isLoggedIn = action.payload.data.loading;
       state.auth_token = localStorage.getItem('token');
       if (state.isLoggedIn) {
