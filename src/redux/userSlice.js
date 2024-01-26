@@ -65,8 +65,12 @@ const userSlice = createSlice({
   },
   extraReducers(builder) {
     builder
-      .addCase(verifyUser.fulfilled, (state) => {
+      .addCase(verifyUser.fulfilled, (state, action) => {
         state.user.role = 'admin';
+        toast.success(action.payload.message);
+      })
+      .addCase(verifyUser.rejected, (action) => {
+        toast.error(action.payload.message);
       });
   },
 });
