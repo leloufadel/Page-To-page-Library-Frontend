@@ -13,20 +13,28 @@ function Verify() {
   };
 
   return (
-    <form>
-      <input
-        className="input-text"
-        type="token"
-        value={token}
-        onChange={(e) => setToken(e.target.value)}
-        placeholder="JWT token"
-        required
-      />
-      <br />
-      <button type="submit" onClick={handleVerify} className="form-btn">
-        Verify
-      </button>
-    </form>
+    <div className="centered-container">
+      <form className="input" onSubmit={handleVerify}>
+        <div className="mb-3 text-center">
+          <h1>Verify User</h1>
+          <p> Enter your JWT token to verify yourself. </p>
+          <p> You can get your token from the Local Storage! </p>
+        </div>
+        <div className="mb-3">
+          <input
+            className="input-text"
+            type="token"
+            value={token}
+            onChange={(e) => setToken(e.target.value)}
+            placeholder="JWT token"
+            required
+          />
+        </div>
+        <button type="submit" className="form-btn">
+          Verify
+        </button>
+      </form>
+    </div>
   );
 }
 
