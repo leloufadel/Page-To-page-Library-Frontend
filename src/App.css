@@ -67,6 +67,61 @@ a {
   background-color: #f2f2f2;
 }
 
+/* DeleteBook.css */
+
+.delete-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem auto;
+}
+
+.delete-book {
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.title {
+  margin-bottom: 1rem;
+}
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.delete-button {
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #c0392b;
+}
+
+.image-container {
+  width: 250px;
+  height: 250px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+}
+
+.image {
+  width: 250px;
+  height: 250px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+}
+
 @media (max-width: 768px) {
   .book-detail {
     flex-direction: column;
