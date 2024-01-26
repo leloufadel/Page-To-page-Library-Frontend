@@ -54,7 +54,7 @@ const Login = ({ onClose }) => {
             <h3>Login!</h3>
             <form className="log-form">
               <input
-                className="input-text"
+                className="form-control mb-3"
                 type="text"
                 value={loginEmail}
                 onChange={(e) => setLoginEmail(e.target.value)}
@@ -62,16 +62,16 @@ const Login = ({ onClose }) => {
                 required
               />
               <input
-                className="input-text"
+                className="form-control mb-3"
                 type="password"
                 value={loginPassword}
                 onChange={(e) => setLoginPassword(e.target.value)}
                 placeholder="Password"
                 required
               />
-              <div className="btn-form">
-                <input type="submit" value="Login" className="btn2" onClick={handleLogin} />
-                <input type="button" value="Cancel" className="btn2" onClick={handleCancelLogout} />
+              <div className="div-btns-form">
+                <input type="submit" value="Login" className="form-btn mb-3" onClick={handleLogin} />
+                <input type="button" value="Cancel" className="form-btn mb-3" onClick={handleCancelLogout} />
               </div>
             </form>
           </div>

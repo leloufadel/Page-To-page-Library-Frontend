@@ -23,10 +23,10 @@ const Splash = () => {
       <div className="login-container">
         <>
           {' '}
-          <button type="button" className="btn" onClick={handleLogin}>log in</button>
+          <button type="button" className="form-btn" onClick={handleLogin}>log in</button>
           {isLoginModalOpen && <Login onClose={closeLoginModal} />}
         </>
-        <button type="button" className="btn" onClick={handleSginup}>sign up</button>
+        <button type="button" className="form-btn" onClick={handleSginup}>sign up</button>
         {isSignUpModalOpen && <Signup onClose={closeLoginModal} />}
       </div>
     </div>

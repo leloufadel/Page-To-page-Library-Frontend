@@ -21,45 +21,6 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.btn {
-  margin: 1rem;
-  padding: 0.5rem;
-  font-size: 24px;
-  text-align: center;
-  background-color: rgb(116, 189, 8);
-  color: white;
-}
-
-.btn2 {
-  margin: 0.5rem;
-  padding: 0.3rem;
-  font-size: 18px;
-  text-align: center;
-  background-color: rgb(116, 189, 8);
-  border: solid  rgb(116, 189, 8) 1px;
-  color: white;
-  width: 50%;
-  height: 40px;
-  border-radius: 20px;
-}
-
-.input-text {
-  width: 100%;
-  margin: 0.2rem;
-  padding: 0.4rem;
-  border-radius: 2px;
-  border: solid  rgb(32, 45, 30) 1px;
-}
-
-.btn:hover,
-.btn2:hover {
-  background-color: white;
-  color: rgb(116, 189, 8);
-  border: solid  rgb(116, 189, 8) 1px;
-}
-
-/* Add this CSS to your stylesheet or component */
-
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -100,7 +61,7 @@
   flex-direction: column;
 }
 
-.btn-form {
+.div-btn-form {
   display: flex;
   width: 100%;
   align-items: center;
@@ -112,7 +73,7 @@
     padding: 10% 5% 10% 5%;
   }
 
-  .btn-form {
+  .div-btn-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -125,7 +86,7 @@
     padding: 5%;
   }
 
-  .btn-form {
+  .div-btn-form {
     display: flex;
     flex-direction: row;
     justify-content: center;
