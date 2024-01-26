@@ -21,9 +21,14 @@ const initialState = {
   headers: {},
 };
 
-export const verifyUser = createAsyncThunk('user/verifyUser', async ({ password, userId }) => {
-  const response = await axios.post(`${BASE_URL}verify`, { password, id: userId });
-  console.log(response.data);
+export const verifyUser = createAsyncThunk('user/verifyUser', async ({ token }) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const response = await axios.post(`${BASE_URL}verify`, {}, config);
   return response.data;
 });
 
