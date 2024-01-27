@@ -1,7 +1,9 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 /* eslint-disable camelcase */
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createReservation } from '../../redux/reservationSlice';
+import '../../stylesheets/reservations.css';
 
 const ReservationForm = () => {
   const [date, setDate] = useState('');
@@ -47,7 +49,7 @@ const ReservationForm = () => {
     <div className="reservationForm">
       <h1>Page to Page Library: Book Reservations</h1>
 
-      <from>
+      <form>
         <input
           type="date"
           value={date}
@@ -61,8 +63,11 @@ const ReservationForm = () => {
           placeholder="City"
           className="form-input"
         />
+
+        <h2 data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Available books</h2>
+
         {displayedBooks.map((book) => (
-          <div key={book.id}>
+          <div key={book.id} className="boxes collapse" id="collapseExample">
             <input
               type="checkbox"
               value={book.id}
@@ -74,7 +79,7 @@ const ReservationForm = () => {
         <button type="submit" onClick={addReservationHandler} className="form-btn">
           Add Reservation
         </button>
-      </from>
+      </form>
     </div>
   );
 };
