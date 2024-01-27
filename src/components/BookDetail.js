@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 function BookDetail() {
@@ -46,6 +46,10 @@ function BookDetail() {
                 </tr>
               </tbody>
             </table>
+            <br />
+            <NavLink to="/newreservation" className="form-btn">
+              Add reservations
+            </NavLink>
           </div>
         </div>
       </div>
