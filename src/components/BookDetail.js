@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { IoSettingsOutline, IoChevronForwardCircleOutline } from 'react-icons/io5';
 
 function BookDetail() {
   const books = useSelector((state) => state.books);
@@ -47,8 +48,10 @@ function BookDetail() {
               </tbody>
             </table>
             <br />
-            <NavLink to="/newreservation" className="form-btn">
+            <NavLink to="/newreservation" className="form-bt">
+              <IoSettingsOutline className="i" />
               Add reservations
+              <IoChevronForwardCircleOutline className="i" />
             </NavLink>
           </div>
         </div>
