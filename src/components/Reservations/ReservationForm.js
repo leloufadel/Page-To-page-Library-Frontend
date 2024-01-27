@@ -8,7 +8,7 @@ const ReservationForm = () => {
   const [city, setCity] = useState('');
   const [selectedBooks, setSelectedBooks] = useState([]);
   const books = useSelector((state) => state.books);
-
+  const userId = useSelector((state) => state.users.user.id);
   const dispatch = useDispatch();
 
   const handleBookSelection = (book) => {
@@ -35,10 +35,9 @@ const ReservationForm = () => {
       book_ids: selectedBooks,
     };
 
-    await dispatch(createReservation(newReservation));
+    await dispatch(createReservation({ userId, newReservation }));
     setDate('');
     setCity('');
-    // setBook('');
     setSelectedBooks([]);
   };
 

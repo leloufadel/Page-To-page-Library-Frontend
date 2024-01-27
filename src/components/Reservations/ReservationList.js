@@ -1,8 +1,18 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { getReservations } from '../../redux/reservationSlice';
 
 const ReservationList = () => {
+  const dispatch = useDispatch();
+  const userId = useSelector((state) => state.users.user.id);
+
+  useEffect(() => {
+    if (userId) {
+      dispatch(getReservations(userId));
+    }
+  }, [userId]);
+
   const reservations = useSelector((state) => state.reservations);
 
   return (
