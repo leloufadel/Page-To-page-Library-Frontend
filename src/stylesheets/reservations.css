@@ -1,0 +1,93 @@
+/* stylelint-disable csstree/validator */
+/* stylelint-disable no-duplicate-selectors */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@400;700&family=Poppins&display=swap');
+
+.reservationForm {
+  font-family: 'Noto Sans Display', sans-serif;
+  background-color: #96bf02;
+  width: 100%;
+}
+
+.reservationList {
+  font-family: 'Noto Sans Display', sans-serif;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reservationList h1 {
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+}
+
+.reservationList table {
+  margin: 2rem auto;
+  width: 75%;
+}
+
+.reservationForm h1 {
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  color: #faebd7;
+}
+
+.reservationForm form {
+  padding: 1rem;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: #fff;
+  margin: 2rem auto;
+  border-radius: 0.5rem;
+}
+
+input[type="checkbox"] {
+  accent-color: #86fd16;
+}
+
+.form-input {
+  width: 60%;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  outline: none;
+  border: 0.15rem solid #dacfcf;
+}
+
+.boxes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+  padding: 0.25rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+}
+
+.form-btn {
+  width: 200px;
+  margin: 5px;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-btn:hover {
+  background-color: white;
+  color: #4caf50;
+  border: solid  #4caf50 1px;
+}
