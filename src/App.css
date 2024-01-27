@@ -76,6 +76,7 @@ a {
 .delete-container {
   display: flex;
   flex-direction: column;
+  width: 100%;
   align-items: center;
   margin: 0 auto;
   overflow: auto;
