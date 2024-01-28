@@ -1,82 +1,65 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { FaFacebookF, FaVimeoV } from 'react-icons/fa';
+import { useMediaQuery } from 'react-responsive';
+import {
+  FaFacebookF, FaVimeoV,
+} from 'react-icons/fa';
+import { TiMediaPlayReverseOutline, TiMediaPlayOutline } from 'react-icons/ti';
 import { BsTwitter } from 'react-icons/bs';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/bundle';
 import '../stylesheets/mainpage.css';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const MainPage = () => {
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    const handleResize = () => {
-      const isMobileScreen = window.innerWidth <= 768;
-      setIsMobile(isMobileScreen);
-    };
-    handleResize();
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
   const books = useSelector((state) => state.books);
-  // const [currentPage] = useState(1);
-  // const booksPerPage = isMobile ? 1 : 6;
 
-  // const startIndex = (currentPage - 1) * booksPerPage;
-  // const endIndex = startIndex + booksPerPage;
-  const displayedBooks = books.books;
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const swiperRef = useRef(null);
+  // Use react-responsive to determine if the device is a mobile device
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
-  const handlePrevSlide = () => {
-    if (swiperRef.current) {
-      swiperRef.current.slidePrev();
-    }
+  // Set booksPerPage to 1 if the device is mobile, otherwise set it to 3
+  const booksPerPage = isMobile ? 1 : 3;
+
+  // Logic for displaying books
+  const startIndex = (currentPage - 1) * booksPerPage;
+  const endIndex = startIndex + booksPerPage;
+
+  const displayedBooks = books.books.slice(startIndex, endIndex);
+
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
   };
 
-  const handleNextSlide = () => {
-    if (swiperRef.current) {
-      swiperRef.current.slideNext();
-    }
+  const handlePrevPage = () => {
+    setCurrentPage((prevPage) => Math.max(1, prevPage - 1));
   };
 
   if (displayedBooks.length === 0) {
-    return <h2>Currently, there are no books!</h2>;
+    return (
+      <h2>Currently, there are no books!</h2>
+    );
   }
 
   return (
     <>
-      <div className="Books-package d-flex justify-content-center align-items-center">
-        <div className="text-center">
-          <h1 className="books-heading">Book library</h1>
-          <p className="books-sub-heading">Choose a book to see more details</p>
-          <p className="books-line">------------------------</p>
+      <div className="list">
+        <div className="title">
+          <h1>Book library</h1>
+          <p>Choose a book to see more details</p>
         </div>
-        {isMobile && (
-
-          <div className="mobile-books">
-            <div className="text-center">
-              <h1 className="books-heading">Book library</h1>
-              <p className="books-sub-heading">Choose a book to see more details</p>
-              <p className="books-line">------------------------</p>
-            </div>
-            {displayedBooks.map((book) => (
-              <Link key={book.id} to={`/books/${book.id}`}>
-                <div className="mobile-book">
-                  <div className="circle-container">
-                    <div className="circle" />
-                    <img className="book-image" src={book.cover_photo} alt={book.name} />
-                  </div>
+        <div className="book-list">
+          <button type="button" className="swipe-btn-1" aria-label="Previous" onClick={handlePrevPage}>
+            <TiMediaPlayReverseOutline className="slide-button" />
+          </button>
+          {displayedBooks.map((book) => (
+            <div key={book.id}>
+              <Link to={`/books/${book.id}`}>
+                <div className="Books-package">
+                  <img className="images" src={book.cover_photo} alt="book" />
                   <h2>{book.name}</h2>
                   <div className="books-sub-heading">
-                    <p className="books-line">------------------------</p>
+                    <p className="books-line">........................</p>
+                    <p>{book.category}</p>
                     <p>{book.info}</p>
 
                     <div className="icons">
@@ -84,76 +67,16 @@ const MainPage = () => {
                       <BsTwitter className="icon" />
                       <FaVimeoV className="icon" />
                     </div>
+
                   </div>
                 </div>
               </Link>
-            ))}
-          </div>
-        )}
-
-        {!isMobile && (
-        <div className="Books-list">
-          <button
-            type="button"
-            className="swipe-btn-1"
-            aria-label="Previous"
-            onClick={handlePrevSlide}
-          >
-            <img
-              className="slide-button"
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAP5JREFUSEu1lt0RgkAMhHc7sRSpRK1ErEQ7kVLsJM4yd048TwZyBy+8MPk2mz+InR/uHB/NADM7ALhLKMmhFNwEMLMrgDEHJfkTLwRwqo9ecRdAofoF4ALgmSyKZ1BR/SCp4DAzawKYmayYVQKYVZOcsj1hQFKtQp5TsKnWKSFAoVrxR5K32txsBlQKOZCUNdVnE8DM5HVuv7+qPSkKkGJ1StWWFoBG/+QmVKB+FrnWE0h26b2YzSaLitTLbNT7moGvgocBLhvNgeahmk0zIK2DMptPh3UBuGz8iu637Cq10ZHpv66LLvPtrIsWX9cLa2K/k7nmhyF0MtcEzt+8AYK6lxmyTtQQAAAAAElFTkSuQmCC"
-              alt="slide"
-            />
+            </div>
+          ))}
+          <button type="button" className="swipe-btn-2" aria-label="Next" onClick={handleNextPage} disabled={endIndex >= books.books.length}>
+            <TiMediaPlayOutline className="slide-button" />
           </button>
-
-          <Swiper
-            onSwiper={(swiper) => {
-              swiperRef.current = swiper;
-            }}
-            slidesPerView={isMobile ? 1 : 3}
-          >
-            {displayedBooks.map((book) => (
-              <SwiperSlide key={book.id}>
-                <Link to={`/books/${book.id}`}>
-                  <div className="Books-package">
-                    <div className="circle-container">
-                      <div className="circle" />
-                      <img className="book-image" src={book.cover_photo} alt={book.name} />
-                    </div>
-                    <h2>{book.name}</h2>
-                    <div className="books-sub-heading">
-                      <p className="books-line">------------------------</p>
-                      <p>{book.info}</p>
-
-                      <div className="icons">
-                        <FaFacebookF className="icon" />
-                        <BsTwitter className="icon" />
-                        <FaVimeoV className="icon" />
-                      </div>
-
-                    </div>
-                  </div>
-                </Link>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-
-          <button
-            type="button"
-            className="swipe-btn-2"
-            aria-label="Next"
-            onClick={handleNextSlide}
-          >
-            <img
-              className="slide-button"
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAO9JREFUSEu1ltENwjAQQ+1NYBOYBDoJZRLYhI7STYwsJShSmyZNyX2icu9sX08lOhc798cqQNILwAXAleR8ZIgcQKGpm79JPlshJUDsa1CTmhLgDOAD4ASgSc0mgCQlufkNwBjkTACG2myKgOiRpDuAx1411QCDVtSMpQXYBUjUWEm0zNnYMlu3qCZAoia+L/5pVU0zIGPZTNKb96tDgABJ7ZpIXv8CCIH3sUhSn5BXpvadGrbuVHUGknxdfTZcm6u5K4MwtS3xm+xaBNmswBc0mTq760cA3c9109Q1GcT9zt6YLVuKgNo/1zzX/aviCyWOnxkFdwrCAAAAAElFTkSuQmCC"
-              alt="slide"
-            />
-          </button>
-          <ToastContainer />
         </div>
-        )}
-
       </div>
     </>
   );
