@@ -142,3 +142,38 @@ h2 {
 .title p {
   color: rgb(173, 173, 173);
 }
+
+/* #Mobile media */
+@media only screen and (max-width: 768px) {
+  .images {
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+  }
+
+  body {
+    overflow: auto;
+  }
+
+  .book-list {
+    display: flex;
+    gap: 1px;
+  }
+
+  .list {
+    margin: 0 auto;
+
+    /* position: absolute; */
+  }
+
+  .swipe-btn-1,
+  .swipe-btn-2 {
+    padding: 4px;
+    margin-right: 6px;
+  }
+
+  .slide-button {
+    width: 20px;
+    height: 20px;
+  }
+}
