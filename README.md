@@ -1,6 +1,6 @@
 <div align="center">
 
-  <h2><b>Project name</b></h2>
+  <h2><b>📚Page to Page Library: Book Reservations</b></h2>
 
 </div>
 
@@ -28,7 +28,7 @@
 
 <!-- PROJECT REQUIREMENTS -->
 
-# Project name <a name="about-project"></a>
+# 📚Page to Page Library: Book Reservations <a name="about-project"></a>
 
 ## 🔗 Integration with Back-End <a name="integration-with-back-end"></a>
 
