@@ -84,6 +84,7 @@ input[type="checkbox"] {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  text-align: center;
 }
 
 .form-btn:hover {

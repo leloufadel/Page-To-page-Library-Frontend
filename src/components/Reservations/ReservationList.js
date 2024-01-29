@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
@@ -23,8 +24,8 @@ const ReservationList = () => {
         <thead>
           <tr>
             <th scope="col">Book Name</th>
-            <th scope="col">Due Date</th>
             <th scope="col">Date</th>
+            <th scope="col">Due Date</th>
             <th scope="col">City</th>
           </tr>
         </thead>
@@ -34,8 +35,8 @@ const ReservationList = () => {
               {res.books.map((book) => (
                 <tr key={book.id}>
                   <td>{book.name}</td>
-                  <td>{res.due_date}</td>
                   <td>{res.date}</td>
+                  <td>{res.due_date}</td>
                   <td>{res.city}</td>
                 </tr>
               ))}
