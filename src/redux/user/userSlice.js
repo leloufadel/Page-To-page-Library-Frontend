@@ -47,6 +47,7 @@ const userSlice = createSlice({
       state.user = initialState.user;
       state.auth_token = null;
       localStorage.removeItem('token');
+      localStorage.removeItem('user-id');
     },
   },
 });
@@ -73,6 +74,7 @@ export const loginUser = (payload) => async (dispatch) => {
       headers,
     }));
     localStorage.setItem('token', response.headers.get('Authorization'));
+    localStorage.setItem('user-id', response.data.user.id);
     return response.data;
   } catch (error) {
     if (error.response && error.response.status === 401) {
@@ -104,21 +106,6 @@ export const logoutUser = () => async (dispatch, getState) => {
     return '';
   } catch (error) {
     toast.error('Error logging out:', error);
-    return Promise.reject(error);
-  }
-};
-
-export const loginUserWithToken = (payload) => async (dispatch) => {
-  const config = {
-    headers: {
-      Authorization: String(payload.auth_token),
-    },
-  };
-  try {
-    const response = await axios.get(`${BASE_URL}member-data`, config);
-    dispatch(setUserInfoFromToken(response));
-    return response;
-  } catch (error) {
     return Promise.reject(error);
   }
 };
