@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Noto+Sans+Display:wght@400;700&family=Poppins&display=swap');
+
 .nav-container {
   width: 20%;
   height: 100vh;
   max-height: 100vh;
   border-right: 1px solid rgb(170, 155, 155, 0.3);
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
 .nav {
@@ -55,6 +58,7 @@
   color: #383838;
   font-weight: 900;
   transition: all 0.3s;
+  padding: 0.25rem;
 }
 
 .sidenav-link:hover {
@@ -68,6 +72,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.sidenav-btn {
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background-color: #fff;
 }
 
 .sidebar-socials {

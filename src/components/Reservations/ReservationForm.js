@@ -64,18 +64,31 @@ const ReservationForm = () => {
           className="form-input"
         />
 
-        <h2 data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Available books</h2>
-
-        {displayedBooks.map((book) => (
-          <div key={book.id} className="boxes collapse" id="collapseExample">
-            <input
-              type="checkbox"
-              value={book.id}
-              onChange={() => handleBookSelection(book)}
-            />
-            <label htmlFor={book.id}>{book.name}</label>
+        <div className="accordion accordion-flush" id="accordionFlushExample">
+          <div className="accordion-item">
+            <h2 className="accordion-header" id="flush-headingOne">
+              <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                Available books
+              </button>
+            </h2>
+            <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+              <div className="accordion-body">
+                <ul className="">
+                  {displayedBooks.map((book) => (
+                    <li key={book.id} className="boxes">
+                      <input
+                        type="checkbox"
+                        value={book.id}
+                        onChange={() => handleBookSelection(book)}
+                      />
+                      <label htmlFor={book.id}>{book.name}</label>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
-        ))}
+        </div>
         <button type="submit" onClick={addReservationHandler} className="form-btn">
           Add Reservation
         </button>
