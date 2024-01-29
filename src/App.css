@@ -32,11 +32,11 @@ a {
   gap: 6rem;
 }
 
-/* .book-images {
-  width: 400px;
-  height: 400px;
+.book-images {
+  width: 380px;
+  height: 380px;
   border: 1px solid #ddd;
-} */
+}
 
 .img {
   width: 380px;
