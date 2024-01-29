@@ -19,7 +19,8 @@ a {
 .main {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+
+  /* margin: 0 auto; */
   overflow: auto;
   height: 100vh;
 }
@@ -28,18 +29,18 @@ a {
   display: flex;
   justify-content: space-between;
   margin: 4rem;
-  gap: 4rem;
+  gap: 6rem;
 }
 
-.book-images {
-  width: 350px;
-  height: 350px;
+/* .book-images {
+  width: 400px;
+  height: 400px;
   border: 1px solid #ddd;
-}
+} */
 
 .img {
-  width: 350px;
-  height: 350px;
+  width: 380px;
+  height: 380px;
 }
 
 .book-details {
@@ -80,6 +81,10 @@ a {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.book-button {
+  margin: 0;
 }
 
 .i {
@@ -141,12 +146,36 @@ a {
   border-radius: 50%;
 }
 
+.swipe-btn {
+  flex: 0.075;
+  background-color: #80cd32;
+  justify-content: flex-end;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  margin-right: 40px;
+  height: 55px;
+  border: none;
+  display: flex;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 @media (max-width: 768px) {
   .book-detail {
     flex-direction: column;
     margin: 0 auto;
     gap: 1.5rem;
   }
+
+  /* .main {
+    margin: 0 auto;
+  }
+
+  .book-button,
+  .swipe-btn {
+    display: none;
+  } */
 
   .book-images {
     width: 260px;

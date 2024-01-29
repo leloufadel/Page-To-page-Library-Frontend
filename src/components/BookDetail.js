@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { IoSettingsOutline, IoChevronForwardCircleOutline } from 'react-icons/io5';
+import { TiMediaPlayReverseOutline } from 'react-icons/ti';
 
 function BookDetail() {
   const books = useSelector((state) => state.books);
@@ -54,6 +55,11 @@ function BookDetail() {
               <IoChevronForwardCircleOutline className="i" />
             </NavLink>
           </div>
+        </div>
+        <div className="book-button">
+          <button type="button" className="swipe-btn" aria-label="Previous">
+            <TiMediaPlayReverseOutline className="slide-button" />
+          </button>
         </div>
       </div>
     </>
