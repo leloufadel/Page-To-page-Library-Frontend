@@ -15,10 +15,13 @@ const MainPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   // Use react-responsive to determine if the device is a mobile device
-  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)'  });
 
   // Set booksPerPage to 1 if the device is mobile, otherwise set it to 3
-  const booksPerPage = isMobile ? 1 : 3;
+  // const booksPerPage = isMobile ? 1 : 3;
+  
+  const booksPerPage = isMobile ? books.books.length : 3;
+
 
   // Logic for displaying books
   const startIndex = (currentPage - 1) * booksPerPage;
@@ -46,6 +49,7 @@ const MainPage = () => {
         <div className="title">
           <h1>Book library</h1>
           <p>Choose a book to see more details</p>
+          <p className="books-line">.......................</p>
         </div>
         <div className="book-list">
           <button type="button" className="swipe-btn-1" aria-label="Previous" onClick={handlePrevPage}>
