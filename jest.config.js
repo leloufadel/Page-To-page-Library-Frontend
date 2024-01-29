@@ -194,6 +194,10 @@ const config = {
   // Whether to use watchman for file crawling
   // watchman: true,
   setupFilesAfterEnv: ['./src/setupTests.js'],
+
+  moduleNameMapper: {
+    '\\.(css|less)$': '<rootDir>/src/__mocks__/styleMock.js',
+  },
 };
 
 module.exports = config;
