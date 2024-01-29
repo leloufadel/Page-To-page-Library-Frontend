@@ -26,9 +26,10 @@
   - [🙏Acknowledgments](#acknowledgments)  
   - [📝 License](#license)
 
-<!-- PROJECT REQUIREMENTS -->
 
 # 📚Page to Page Library: Book Reservations <a name="about-project"></a>
+
+This project is a web application that allows users to reserve books from a library. The user can also see the list of books that are available in the library. The user can reserve a book by clicking on the reserve button. The user can also see the list of books that they have reserved. 
 
 ## 🔗 Integration with Back-End <a name="integration-with-back-end"></a>
 
