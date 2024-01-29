@@ -60,7 +60,6 @@ const MainPage = () => {
                   <div className="books-sub-heading">
                     <p className="books-line">........................</p>
                     <p>{book.category}</p>
-                    <p>{book.info}</p>
 
                     <div className="icons">
                       <FaFacebookF className="icon" />
