@@ -56,11 +56,10 @@ const MainPage = () => {
               <Link to={`/books/${book.id}`}>
                 <div className="Books-package">
                   <img className="images" src={book.cover_photo} alt="book" />
-                  <h2>{book.name}</h2>
+                  <h2>{book.name.length > 8 ? `${book.name.slice(0, 8)}..` : book.name}</h2>
                   <div className="books-sub-heading">
                     <p className="books-line">........................</p>
                     <p>{book.category}</p>
-                    <p>{book.info}</p>
 
                     <div className="icons">
                       <FaFacebookF className="icon" />

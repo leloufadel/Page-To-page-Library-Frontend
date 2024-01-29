@@ -55,10 +55,10 @@ const BookForm = () => {
           <input type="date" placeholder="Publisher Date" id="nameInput" className="form-control" value={publishDate} onChange={(e) => setPublishDate(e.target.value)} required />
         </div>
         <div className="mb-3">
-          <input type="text" placeholder="Info" id="nameInput" className="form-control" value={category} onChange={(e) => setCategory(e.target.value)} required />
+          <input type="text" placeholder="Info" id="nameInput" className="form-control" value={info} onChange={(e) => setInfo(e.target.value)} required />
         </div>
         <div className="mb-3">
-          <input type="text" placeholder="Category" id="nameInput" className="form-control" value={info} onChange={(e) => setInfo(e.target.value)} required />
+          <input type="text" placeholder="Category" id="nameInput" className="form-control" value={category} onChange={(e) => setCategory(e.target.value)} required />
         </div>
         <button type="submit" className="form-btn">
           Add Book
