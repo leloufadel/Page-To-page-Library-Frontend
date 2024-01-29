@@ -168,14 +168,14 @@ a {
     gap: 1.5rem;
   }
 
-  /* .main {
+  .main {
     margin: 0 auto;
   }
 
   .book-button,
   .swipe-btn {
     display: none;
-  } */
+  }
 
   .book-images {
     width: 260px;
