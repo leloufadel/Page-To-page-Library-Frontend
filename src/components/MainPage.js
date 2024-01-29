@@ -14,14 +14,24 @@ const MainPage = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Use react-responsive to determine if the device is a mobile device
-  const isMobile = useMediaQuery({ query: '(max-width: 768px)'  });
+  const isExtraSmallScreen = useMediaQuery({ query: '(max-width: 600px)' });
+  const isSmallScreen = useMediaQuery({ query: '(min-width: 600px) and (max-width: 768px)' });
+  const isMediumScreen = useMediaQuery({ query: '(min-width: 768px) and (max-width: 992px)' });
+  const isLargeScreen = useMediaQuery({ query: '(min-width: 992px)' });
 
-  // Set booksPerPage to 1 if the device is mobile, otherwise set it to 3
-  // const booksPerPage = isMobile ? 1 : 3;
-  
-  const booksPerPage = isMobile ? books.books.length : 3;
 
+  let booksPerPage = 3;
+  if (isExtraSmallScreen) {
+    booksPerPage = 1;
+  } else if (isSmallScreen) {
+    booksPerPage = 2;
+  } else if (isMediumScreen) {
+    booksPerPage = 2;
+  } else if (isLargeScreen) {
+    booksPerPage = 3;
+  }
+
+  // const booksPerPage = isMobile ? books.books.length : 3;
 
   // Logic for displaying books
   const startIndex = (currentPage - 1) * booksPerPage;
