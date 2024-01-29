@@ -196,7 +196,11 @@ const config = {
   setupFilesAfterEnv: ['./src/setupTests.js'],
 
   moduleNameMapper: {
-    '\\.(css|less)$': '<rootDir>/src/__mocks__/styleMock.js',
+    "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__mocks__/fileMock.js",
+    '\\.(css|less)$': 'identity-obj-proxy',
+    'swiper/css': '<rootDir>/src/__mocks__/styleMock.js',
+    'swiper/css/bundle': '<rootDir>/src/__mocks__/styleMock.js',
+    'swiper/react': '<rootDir>/src/__mocks__/swiperReact.js',
   },
 };
 
