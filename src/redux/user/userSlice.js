@@ -4,19 +4,19 @@ import { toast } from 'react-toastify';
 
 const BASE_URL = 'http://localhost:3000/';
 
-const tokenKey = 'auth_token';
+const initialToken = localStorage.getItem('token') || null;
 
-const initialToken = localStorage.getItem(tokenKey) || null;
+let userData = null;
+try {
+  userData = JSON.parse(localStorage.getItem('user')) || null;
+} catch (error) {
+  console.error('Error parsing user data:', error);
+}
 
 const initialState = {
   auth_token: initialToken,
   isLoggedIn: false,
-  user: {
-    id: null,
-    name: null,
-    email: null,
-    password: null,
-  },
+  user: userData,
   headers: {},
 };
 
@@ -44,10 +44,9 @@ const userSlice = createSlice({
     },
     resetUserInfo: (state) => {
       state.isLoggedIn = false;
-      state.user = initialState.user;
       state.auth_token = null;
       localStorage.removeItem('token');
-      localStorage.removeItem('user-id');
+      localStorage.removeItem('user');
     },
   },
 });
@@ -72,9 +71,10 @@ export const loginUser = (payload) => async (dispatch) => {
       data: response.data,
       authorization: headers?.authorization || '',
       headers,
+      user: response.data.user,
     }));
     localStorage.setItem('token', response.headers.get('Authorization'));
-    localStorage.setItem('user-id', response.data.user.id);
+    localStorage.setItem('user', JSON.stringify(response.data.user));
     return response.data;
   } catch (error) {
     if (error.response && error.response.status === 401) {
@@ -106,6 +106,21 @@ export const logoutUser = () => async (dispatch, getState) => {
     return '';
   } catch (error) {
     toast.error('Error logging out:', error);
+    return Promise.reject(error);
+  }
+};
+
+export const loginUserWithToken = (payload) => async (dispatch) => {
+  const config = {
+    headers: {
+      Authorization: String(payload.auth_token),
+    },
+  };
+  try {
+    const response = await axios.get(`${BASE_URL}member-data`, config);
+    dispatch(setUserInfoFromToken(response));
+    return response;
+  } catch (error) {
     return Promise.reject(error);
   }
 };
