@@ -53,15 +53,17 @@ function BookDetail() {
             <br />
             <NavLink to="/newreservation" className="form-bt">
               <IoSettingsOutline className="i" />
-              Barrow Book
+              Borrow Book
               <IoChevronForwardCircleOutline className="i" />
             </NavLink>
           </div>
         </div>
         <div className="book-button">
-          <button type="button" className="swipe-btn" aria-label="Previous">
-            <TiMediaPlayReverseOutline className="slide-button" />
-          </button>
+          <NavLink to="/mainpage">
+            <button type="button" className="swipe-btn" aria-label="Previous">
+              <TiMediaPlayReverseOutline className="slide-button" />
+            </button>
+          </NavLink>
         </div>
       </div>
     </>
