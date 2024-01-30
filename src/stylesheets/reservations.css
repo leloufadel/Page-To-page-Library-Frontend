@@ -75,24 +75,6 @@ input[type="checkbox"] {
   height: 1rem;
 }
 
-.form-btn {
-  width: 200px;
-  margin: 5px;
-  background-color: #4caf50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-align: center;
-}
-
-.form-btn:hover {
-  background-color: white;
-  color: #4caf50;
-  border: solid  #4caf50 1px;
-}
-
 .accordion {
   position: relative;
   margin-bottom: 2rem;

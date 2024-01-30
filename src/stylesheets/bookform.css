@@ -30,18 +30,19 @@
 .form-btn {
   width: 200px;
   margin: 5px;
-  background-color: #4caf50;
+  background-color: rgb(116, 189, 8);
   color: white;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  text-align: center;
 }
 
 .form-btn:hover {
   background-color: white;
-  color: #4caf50;
-  border: solid  #4caf50 1px;
+  color: rgb(116, 189, 8);
+  border: solid  rgb(116, 189, 8) 1px;
 }
 
 @media only screen and (max-width: 768px) {

@@ -117,7 +117,7 @@ export const logoutUser = () => async (dispatch, getState) => {
     if (user && token) {
       const config = {
         headers: {
-          authorization: String(token),
+          authorization: token,
         },
       };
       await axios.delete(`${BASE_URL}users/sign_out`, config);
