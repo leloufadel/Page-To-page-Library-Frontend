@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createBook, getBooks } from '../redux/bookSlice';
 import '../stylesheets/bookform.css';
@@ -56,6 +56,8 @@ const BookForm = () => {
         </div>
         <div className="mb-3">
           <input type="text" placeholder="Info" id="nameInput" className="form-control" value={info} onChange={(e) => setInfo(e.target.value)} required />
+
+          <input type="text" placeholder="Category" id="nameInput" className="form-control" value={category} onChange={(e) => setCategory(e.target.value)} required />
         </div>
         <div className="mb-3">
           <input type="text" placeholder="Category" id="nameInput" className="form-control" value={category} onChange={(e) => setCategory(e.target.value)} required />
