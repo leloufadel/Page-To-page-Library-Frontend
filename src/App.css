@@ -19,25 +19,27 @@ a {
 .main {
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
+  margin: 0 auto;
+  overflow: auto;
+  height: 100vh;
 }
 
 .book-detail {
   display: flex;
   justify-content: space-between;
-  margin: 6rem;
-  gap: 8rem;
+  margin: 4rem;
+  gap: 4rem;
 }
 
 .book-images {
-  width: 400px;
-  height: 400px;
+  width: 350px;
+  height: 350px;
   border: 1px solid #ddd;
 }
 
 .img {
-  width: 400px;
-  height: 400px;
+  width: 350px;
+  height: 350px;
 }
 
 .book-details {
@@ -45,7 +47,9 @@ a {
 }
 
 .detail-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
+  margin-top: 1rem;
+  font-weight: bold;
   text-align: center;
   justify-content: center;
 }
@@ -73,20 +77,17 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1rem auto;
+  margin: 0 auto;
+  overflow: auto;
+  height: 100vh;
 }
 
 .delete-book {
   padding: 12px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  display: flex;
+  width: 350px;
   gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.title {
-  margin-bottom: 1rem;
 }
 
 .book-info {
@@ -113,6 +114,7 @@ a {
   height: 250px;
   border: 1px solid #ddd;
   border-radius: 50%;
+  margin: 0 auto;
 }
 
 .image {
@@ -125,23 +127,23 @@ a {
 @media (max-width: 768px) {
   .book-detail {
     flex-direction: column;
-    margin: 1.5rem;
+    margin: 0 auto;
     gap: 1.5rem;
   }
 
   .book-images {
-    width: 200px;
+    width: 260px;
     height: 200px;
     border: 1px solid #ddd;
-    margin-left: 60px;
+    margin: 0 auto;
   }
 
   .img {
-    width: 200px;
+    width: 260px;
     height: 200px;
   }
 
   .styled-table {
-    width: 320px;
+    width: 300px;
   }
 }
