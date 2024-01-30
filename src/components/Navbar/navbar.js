@@ -39,15 +39,10 @@ const SideNav = () => {
         <div className="logo-img">
           <img className="logo" src={logoImage} alt="logo" />
         </div>
-        <ul className="sidenav-list d-flex flex-column justify-content-center align-items-center">
+        <ul className="sidenav-list d-flex flex-column justify-content-center">
           <li className="sidenav-item">
             <NavLink to="/MainPage" className="sidenav-link" onClick={toggleSidebar}>
               Books
-            </NavLink>
-          </li>
-          <li className="sidenav-item">
-            <NavLink to="/" className="sidenav-link" onClick={toggleSidebar}>
-              Reservations
             </NavLink>
           </li>
           { role === 'admin' && (
@@ -66,7 +61,7 @@ const SideNav = () => {
           </li>
           <li className="sidenav-item">
             <NavLink to="/deletebook" className="sidenav-link" onClick={toggleSidebar}>
-              Delete Book-
+              Delete Book -
             </NavLink>
           </li>
           <li className="sidenav-item">
@@ -80,7 +75,7 @@ const SideNav = () => {
             </NavLink>
           </li>
           <li className="sidenav-item">
-            <button type="button" className="sidenav-link" onClick={onLogout}>
+            <button type="button" className="sidenav-link sidenav-btn" onClick={onLogout}>
               Logout
             </button>
             {isLogoutModalOpen && <Logout onClose={closeLogoutModal} />}

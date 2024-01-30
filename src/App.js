@@ -5,7 +5,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch } from 'react-redux';
 import { getBooks } from './redux/bookSlice';
 import Splash from './components/Splash';
-import { getReservations } from './redux/reservationSlice';
 import BookForm from './components/bookform';
 import BookDetail from './components/BookDetail';
 import MainPage from './components/MainPage';
@@ -21,7 +20,6 @@ function App() {
 
   useEffect(() => {
     dispatch(getBooks());
-    dispatch(getReservations());
   });
 
   const navigate = useNavigate();

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import { updateRole } from '../../redux/userSlice';
 import SideNav from '../Navbar/navbar';
 
@@ -10,6 +11,7 @@ function Verify() {
   const handleVerify = async (e) => {
     e.preventDefault();
     await dispatch(updateRole({ email }));
+    toast.success('User has been verified');
     setEmail('');
   };
 
@@ -19,12 +21,12 @@ function Verify() {
       <div className="centered-container">
         <form className="input" onSubmit={handleVerify}>
           <div className="mb-3 text-center">
-            <h1>Give User Admin Role</h1>
+            <h1>Give User Permission</h1>
             <p> If you wish to turn a user into an admin, please add their email bellow. </p>
           </div>
           <div className="mb-3">
             <input
-              className="input-text"
+              className="input-text form-control"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}

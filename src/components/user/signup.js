@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import '../../stylesheets/login.css';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import { registerUser } from '../../redux/userSlice';
+import { useNavigate } from 'react-router-dom';
+import { registerUser, loginUser } from '../../redux/userSlice';
 
 const Signup = ({ onClose }) => {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const [signUpEmail, setSignUpEmail] = useState('');
   const [signUpName, setSignUpName] = useState('');
   const [signUpPassword, setSignUpPassword] = useState('');
@@ -19,7 +19,20 @@ const Signup = ({ onClose }) => {
     setSignUpPassword('');
   };
 
-  const onSignUp = (event) => {
+  const signin = (event) => {
+    event.preventDefault();
+    const data = {
+      user: {
+        email: signUpEmail,
+        password: signUpPassword,
+      },
+    };
+    dispatch(loginUser(data));
+    navigate('/mainpage');
+    resetData();
+  };
+
+  const onSignUp = async (event) => {
     event.preventDefault();
     const data = {
       user: {
@@ -30,13 +43,13 @@ const Signup = ({ onClose }) => {
       },
     };
     try {
-      dispatch(registerUser(data));
-      resetData();
+      await dispatch(registerUser(data));
+      signin(event);
     } catch (error) {
       toast.error('Sign up Error:', error);
     }
   };
-  const handleCancelLogout = () => {
+  const handleCancelSignup = () => {
     onClose();
   };
 
@@ -44,38 +57,37 @@ const Signup = ({ onClose }) => {
     <>
       {showModal && (
       <div className="modal-overlay">
-        <div className="logout-modal add-pading">
+        <div className="modal-style log-in-up">
           <h3>Sign Up!</h3>
-          <form onSubmit={onSignUp} className="sign-up-form">
+          <form onSubmit={onSignUp} className="log-form">
             <input
-              className="input-text"
+              className="form-control mb-3"
               type="text"
               value={signUpName}
               onChange={(e) => setSignUpName(e.target.value)}
               placeholder="Name"
               required
             />
-            <br />
             <input
-              className="input-text"
+              className="form-control mb-3"
               type="email"
               value={signUpEmail}
               onChange={(e) => setSignUpEmail(e.target.value)}
               placeholder="Email"
               required
             />
-            <br />
             <input
               type="password"
-              className="input-text"
+              className="form-control mb-3"
               value={signUpPassword}
               onChange={(e) => setSignUpPassword(e.target.value)}
               placeholder="Password"
               required
             />
-            <br />
-            <input type="submit" value="Sign up" className="btn2" />
-            <input type="button" value="Cancel" className="btn2" onClick={handleCancelLogout} />
+            <div className="div-btns-form">
+              <input type="submit" value="Sign up" className="form-btn" />
+              <input type="button" value="Cancel" className="form-btn" onClick={handleCancelSignup} />
+            </div>
           </form>
         </div>
       </div>

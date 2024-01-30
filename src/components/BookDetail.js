@@ -1,6 +1,8 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { IoSettingsOutline, IoChevronForwardCircleOutline } from 'react-icons/io5';
+import { TiMediaPlayReverseOutline } from 'react-icons/ti';
 import SideNav from './Navbar/navbar';
 
 function BookDetail() {
@@ -48,7 +50,20 @@ function BookDetail() {
                 </tr>
               </tbody>
             </table>
+            <br />
+            <NavLink to="/newreservation" className="form-bt">
+              <IoSettingsOutline className="i" />
+              Borrow Book
+              <IoChevronForwardCircleOutline className="i" />
+            </NavLink>
           </div>
+        </div>
+        <div className="book-button">
+          <NavLink to="/mainpage">
+            <button type="button" className="swipe-btn" aria-label="Previous">
+              <TiMediaPlayReverseOutline className="slide-button" />
+            </button>
+          </NavLink>
         </div>
       </div>
     </>

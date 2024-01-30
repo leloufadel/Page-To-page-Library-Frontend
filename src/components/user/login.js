@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import '../../stylesheets/login.css';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -51,29 +50,29 @@ const Login = ({ onClose }) => {
     <>
       {showModal && (
         <div className="modal-overlay">
-          <div className="logout-modal add-pading">
+          <div className="modal-style log-in-up">
             <h3>Login!</h3>
-            <form className="login-form">
+            <form className="log-form">
               <input
-                className="input-text"
+                className="form-control mb-3"
                 type="text"
                 value={loginEmail}
                 onChange={(e) => setLoginEmail(e.target.value)}
                 placeholder="Email"
                 required
               />
-              <br />
               <input
-                className="input-text"
+                className="form-control mb-3"
                 type="password"
                 value={loginPassword}
                 onChange={(e) => setLoginPassword(e.target.value)}
                 placeholder="Password"
                 required
               />
-              <br />
-              <input type="submit" value="Login" className="btn2" onClick={handleLogin} />
-              <input type="button" value="Cancel" className="btn2" onClick={handleCancelLogout} />
+              <div className="div-btns-form">
+                <input type="submit" value="Login" className="form-btn mb-3" onClick={handleLogin} />
+                <input type="button" value="Cancel" className="form-btn mb-3" onClick={handleCancelLogout} />
+              </div>
             </form>
           </div>
         </div>

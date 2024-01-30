@@ -1,7 +1,10 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 /* eslint-disable camelcase */
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import { createReservation } from '../../redux/reservationSlice';
+import '../../stylesheets/reservations.css';
 import SideNav from '../Navbar/navbar';
 
 const ReservationForm = () => {
@@ -9,7 +12,7 @@ const ReservationForm = () => {
   const [city, setCity] = useState('');
   const [selectedBooks, setSelectedBooks] = useState([]);
   const books = useSelector((state) => state.books);
-
+  const userId = useSelector((state) => state.users.user.id);
   const dispatch = useDispatch();
 
   const handleBookSelection = (book) => {
@@ -36,10 +39,10 @@ const ReservationForm = () => {
       book_ids: selectedBooks,
     };
 
-    await dispatch(createReservation(newReservation));
+    await dispatch(createReservation({ userId, newReservation }));
+    toast.success('Reservation Added Successfully');
     setDate('');
     setCity('');
-    // setBook('');
     setSelectedBooks([]);
   };
 
@@ -51,8 +54,7 @@ const ReservationForm = () => {
       <SideNav />
       <div className="reservationForm">
         <h1>Page to Page Library: Book Reservations</h1>
-
-        <from>
+        <form>
           <input
             type="date"
             value={date}
@@ -66,20 +68,36 @@ const ReservationForm = () => {
             placeholder="City"
             className="form-input"
           />
-          {displayedBooks.map((book) => (
-            <div key={book.id}>
-              <input
-                type="checkbox"
-                value={book.id}
-                onChange={() => handleBookSelection(book)}
-              />
-              <label htmlFor={book.id}>{book.name}</label>
+
+          <div className="accordion accordion-flush" id="accordionFlushExample">
+            <div className="accordion-item">
+              <h2 className="accordion-header" id="flush-headingOne">
+                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                  Available books
+                </button>
+              </h2>
+              <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div className="accordion-body">
+                  <ul className="">
+                    {displayedBooks.map((book) => (
+                      <li key={book.id} className="boxes">
+                        <input
+                          type="checkbox"
+                          value={book.id}
+                          onChange={() => handleBookSelection(book)}
+                        />
+                        <label htmlFor={book.id}>{book.name}</label>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
-          ))}
+          </div>
           <button type="submit" onClick={addReservationHandler} className="form-btn">
             Add Reservation
           </button>
-        </from>
+        </form>
       </div>
     </>
   );
