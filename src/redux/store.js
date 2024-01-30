@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { thunk } from 'redux-thunk';
+import thunk from 'redux-thunk';
 import booksReducer from './bookSlice';
 import userReducer from './userSlice';
 import modalReducer from './modalSlice';
