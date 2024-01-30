@@ -37,7 +37,7 @@ const SideNav = () => {
         <div className="logo-img">
           <img className="logo" src={logoImage} alt="logo" />
         </div>
-        <ul className="sidenav-list d-flex flex-column justify-content-center align-items-center">
+        <ul className="sidenav-list d-flex flex-column justify-content-center">
           <li className="sidenav-item">
             <NavLink to="/MainPage" className="sidenav-link" onClick={toggleSidebar}>
               Books

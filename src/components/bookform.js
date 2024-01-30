@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import { createBook, getBooks } from '../redux/bookSlice';
 import '../stylesheets/bookform.css';
 
@@ -26,6 +27,7 @@ const BookForm = () => {
       info,
     };
     await dispatch(createBook(newBooks));
+    toast.success('Book Added Successfully');
     await dispatch(getBooks());
     setName('');
     setCoverPhoto('');

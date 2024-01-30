@@ -2,6 +2,7 @@
 /* eslint-disable camelcase */
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import { createReservation } from '../../redux/reservationSlice';
 import '../../stylesheets/reservations.css';
 
@@ -38,6 +39,7 @@ const ReservationForm = () => {
     };
 
     await dispatch(createReservation({ userId, newReservation }));
+    toast.success('Reservation Added Successfully');
     setDate('');
     setCity('');
     setSelectedBooks([]);
