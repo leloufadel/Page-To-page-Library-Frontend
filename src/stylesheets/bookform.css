@@ -30,7 +30,7 @@
 .form-btn {
   width: 200px;
   margin: 5px;
-  background-color:rgb(116, 189, 8);
+  background-color: rgb(116, 189, 8);
   color: white;
   padding: 10px 20px;
   border: none;
@@ -44,6 +44,7 @@
   color: rgb(116, 189, 8);
   border: solid  rgb(116, 189, 8) 1px;
 }
+
 @media only screen and (max-width: 768px) {
   .centered-container {
     width: 100%;
