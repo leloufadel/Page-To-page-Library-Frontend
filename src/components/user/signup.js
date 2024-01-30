@@ -26,7 +26,7 @@ const Signup = ({ onClose }) => {
         name: signUpName,
         email: signUpEmail,
         password: signUpPassword,
-        role:'user',
+        role: 'user',
       },
     };
     try {

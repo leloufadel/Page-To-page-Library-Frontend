@@ -12,7 +12,6 @@ import MainPage from './components/MainPage';
 import ReservationList from './components/Reservations/ReservationList';
 import ReservationForm from './components/Reservations/ReservationForm';
 import Verify from './components/user/verify';
-import SideNav from './components/Navbar/navbar';
 import DeleteBook from './components/DeleteBook';
 import AdminRoute from './components/user/AdminRoute';
 import './App.css';

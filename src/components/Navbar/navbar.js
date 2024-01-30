@@ -25,8 +25,8 @@ const SideNav = () => {
   const closeLogoutModal = () => {
     setLogoutModalOpen(false);
   };
-const  userData = JSON.parse(localStorage.getItem('user')) ;
-  const role=userData.role;
+  const userData = JSON.parse(localStorage.getItem('user'));
+  const { role } = userData;
   return (
     <div className={`nav-container ${isNavVisible ? 'open' : ''} d-flex flex-column align-items-center`}>
 
@@ -50,7 +50,15 @@ const  userData = JSON.parse(localStorage.getItem('user')) ;
               Reservations
             </NavLink>
           </li>
-          { role ==='admin' &&(<>
+          { role === 'admin' && (
+          <>
+            <li className="sidenav-item">
+              <NavLink to="/verify" className="sidenav-link" onClick={toggleSidebar}>
+                Verify
+              </NavLink>
+            </li>
+          </>
+          )}
           <li className="sidenav-item">
             <NavLink to="/BookForm" className="sidenav-link" onClick={toggleSidebar}>
               Add Book +
@@ -59,13 +67,6 @@ const  userData = JSON.parse(localStorage.getItem('user')) ;
           <li className="sidenav-item">
             <NavLink to="/deletebook" className="sidenav-link" onClick={toggleSidebar}>
               Delete Book-
-            </NavLink>
-          </li></>
-          )}
-          
-          <li className="sidenav-item">
-            <NavLink to="/verify" className="sidenav-link" onClick={toggleSidebar}>
-              Verify
             </NavLink>
           </li>
           <li className="sidenav-item">
