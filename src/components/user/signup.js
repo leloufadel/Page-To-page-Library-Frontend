@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-import { registerUser, loginUser } from '../../redux/user/userSlice';
+import { registerUser, loginUser } from '../../redux/userSlice';
 
 const Signup = ({ onClose }) => {
   const dispatch = useDispatch();

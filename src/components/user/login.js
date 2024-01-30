@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
-import { loginUser } from '../../redux/user/userSlice';
+import { loginUser } from '../../redux/userSlice';
 
 const Login = ({ onClose }) => {
   const { isLoggedIn } = useSelector((state) => state.users);
