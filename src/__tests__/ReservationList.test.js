@@ -18,7 +18,7 @@ describe('renders ReservationList component', () => {
   beforeEach(() => {
     useSelector.mockImplementation((selector) => selector({
       users: {
-        user: { id: 1},
+        user: { id: 1 },
       },
       reservations: {
         reservations: [
