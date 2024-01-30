@@ -61,8 +61,8 @@
   padding: 0.25rem;
 }
 
-.sidenav-link:hover,
-.sidenav-item:hover {
+.sidenav-item:hover,
+.sidenav-item:hover a {
   background-color: rgb(116, 189, 8);
   color: white;
 }
