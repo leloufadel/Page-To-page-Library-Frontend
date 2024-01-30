@@ -31,6 +31,12 @@ export const verifyUser = createAsyncThunk('user/verifyUser', async ({ token }) 
   return response.data;
 });
 
+export const updateRole = createAsyncThunk('user/updateRole', async ({ email }) => {
+  const response = await axios.post(`${BASE_URL}update`, email);
+  console.log(response.data);
+  return response.data;
+});
+
 const userSlice = createSlice({
   name: 'users',
   initialState,
