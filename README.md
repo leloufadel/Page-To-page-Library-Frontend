@@ -33,7 +33,7 @@ This project is a web application that allows users to reserve books from a libr
 
 ## 🔗 Integration with Back-End <a name="integration-with-back-end"></a>
 
-Here is the link to the [ Back-End ](https://github.com/leloufadel/full-stuck-project)repository.
+Here is the link to the [ Back-End ](https://github.com/leloufadel/Page-To-page-Library-Backend)repository.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -99,7 +99,7 @@ To get the project up and running on your local machine, follow these steps.
 
 In order to run this project you need:
 
-- To clone or fork this repo (https://github.com/leloufadel/front-end-capstone)
+- To clone or fork this repo (https://github.com/leloufadel/Page-To-page-Library-Frontend)
 - Have installed [Node.js](https://nodejs.org/en/)
 - Have installed [npm](https://www.npmjs.com/get-npm)
 - Have installed [git](https://git-scm.com/downloads)
@@ -112,8 +112,8 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
 ```sh
-git clone https://github.com/leloufadel/front-end-capstone.git
-cd front-end-capstone
+git clone https://github.com/leloufadel/Page-To-page-Library-Frontend.git
+cd Page-To-page-Library-Frontend
 ```
 
 Install the required dependencies:
@@ -142,7 +142,7 @@ npm test
 
 ## 📋 Kanban Board <a name="kanban-board"></a>
 
-[Project Board](https://github.com/leloufadel/full-stuck-project/projects/1)
+[Project Board](https://github.com/leloufadel/Page-To-page-Library-Backend/projects/1)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -191,13 +191,13 @@ Upcoming improvements:
 
 ## 🔭 Issues <a name="issues"></a>
 
-Find a bug or have a feature request? [Open a new issue](https://github.com/leloufadel/front-end-capstone/issues) here on GitHub.
+Find a bug or have a feature request? [Open a new issue](https://github.com/leloufadel/Page-To-page-Library-Frontend/issues) here on GitHub.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🤝 Contributing <a name="contributing"></a>
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/leloufadel/front-end-capstone/issues).
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/leloufadel/Page-To-page-Library-Frontend/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
