@@ -45,8 +45,7 @@
 .sidenav-list {
   list-style: none;
   width: 100%;
-
-  /* padding-inline-start: 0; */
+  padding-inline-start: 0;
 }
 
 .sidenav-item {
@@ -62,15 +61,16 @@
   padding: 0.25rem;
 }
 
-.sidenav-link:hover {
-  color: white;
+.sidenav-item:hover,
+.sidenav-item:hover a {
   background-color: rgb(116, 189, 8);
-  text-align: center;
+  color: white;
 }
 
-.sidenav-link.active {
+.sidenav-item.active {
   background-color: rgb(116, 189, 8);
   color: white;
+  width: 100%;
   padding: 10px;
 }
 
@@ -86,6 +86,12 @@
   border: none;
   border-radius: 8px;
   background-color: #fff;
+  text-align: left;
+}
+
+.sidenav-btn:hover {
+  background-color: rgb(116, 189, 8);
+  color: white;
 }
 
 .sidebar-socials {
