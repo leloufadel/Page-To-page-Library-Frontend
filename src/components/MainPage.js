@@ -8,6 +8,8 @@ import {
 import { TiMediaPlayReverseOutline, TiMediaPlayOutline } from 'react-icons/ti';
 import { BsTwitter } from 'react-icons/bs';
 import '../stylesheets/mainpage.css';
+import 'react-toastify/dist/ReactToastify.css';
+import SideNav from './Navbar/navbar';
 
 const MainPage = () => {
   const books = useSelector((state) => state.books);
@@ -54,6 +56,7 @@ const MainPage = () => {
 
   return (
     <>
+      <SideNav />
       <div className="list">
         <div className="title">
           <h1>Book library</h1>

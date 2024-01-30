@@ -3,6 +3,7 @@ import { useParams, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { IoSettingsOutline, IoChevronForwardCircleOutline } from 'react-icons/io5';
 import { TiMediaPlayReverseOutline } from 'react-icons/ti';
+import SideNav from './Navbar/navbar';
 
 function BookDetail() {
   const books = useSelector((state) => state.books);
@@ -16,6 +17,7 @@ function BookDetail() {
 
   return (
     <>
+      <SideNav />
       <div className="main">
         <p className="detail-title">Book Detail page</p>
         <div className="book-detail">
