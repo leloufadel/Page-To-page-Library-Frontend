@@ -45,7 +45,8 @@
 .sidenav-list {
   list-style: none;
   width: 100%;
-  padding-inline-start: 0;
+
+  /* padding-inline-start: 0; */
 }
 
 .sidenav-item {
@@ -65,6 +66,12 @@
   color: white;
   background-color: rgb(116, 189, 8);
   text-align: center;
+}
+
+.sidenav-link.active {
+  background-color: rgb(116, 189, 8);
+  color: white;
+  padding: 10px;
 }
 
 .sidenav-footer {
