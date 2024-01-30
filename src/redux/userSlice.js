@@ -20,19 +20,24 @@ const initialState = {
   headers: {},
 };
 
-export const verifyUser = createAsyncThunk('user/verifyUser', async ({ token }) => {
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
+// export const verifyUser = createAsyncThunk('user/verifyUser', async ({ token }) => {
+//   const config = {
+//     headers: {
+//       Authorization: `Bearer ${token}`,
+//     },
+//   };
 
-  const response = await axios.post(`${BASE_URL}verify`, {}, config);
-  return response.data;
-});
+//   const response = await axios.post(`${BASE_URL}verify`, {}, config);
+//   return response.data;
+// });
 
 export const updateRole = createAsyncThunk('user/updateRole', async ({ email }) => {
-  const response = await axios.post(`${BASE_URL}update`, email);
+  const token = localStorage.getItem('token');
+  const response = await axios.post(`${BASE_URL}update`, { email }, {
+    headers: {
+      Authorization: `${token}`,
+    },
+  });
   console.log(response.data);
   return response.data;
 });
@@ -68,16 +73,15 @@ const userSlice = createSlice({
       localStorage.removeItem('user');
     },
   },
-  extraReducers(builder) {
-    builder
-      .addCase(verifyUser.fulfilled, (state, action) => {
-        state.user.role = 'admin';
-        toast.success(action.payload.message);
-      })
-      .addCase(verifyUser.rejected, (action) => {
-        toast.error(action.payload.message);
-      });
-  },
+  // extraReducers(builder) {
+  //   builder
+  //     .addCase(updateRole.fulfilled, (action) => {
+  //       toast.success(action.payload.message);
+  //     })
+  //     .addCase(updateRole.rejected, (action) => {
+  //       toast.error(action.payload.message);
+  //     });
+  // },
 });
 
 export const { setUserInfo, setUserInfoFromToken, resetUserInfo } = userSlice.actions;

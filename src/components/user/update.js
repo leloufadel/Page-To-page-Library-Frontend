@@ -9,7 +9,7 @@ function Verify() {
 
   const handleVerify = async (e) => {
     e.preventDefault();
-    await dispatch(updateRole(email));
+    await dispatch(updateRole({ email }));
     setEmail('');
   };
 
