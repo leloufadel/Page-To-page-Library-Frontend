@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
@@ -20,12 +20,24 @@ const initialState = {
   headers: {},
 };
 
+export const verifyUser = createAsyncThunk('user/verifyUser', async ({ token }) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const response = await axios.post(`${BASE_URL}verify`, {}, config);
+  return response.data;
+});
+
 const userSlice = createSlice({
   name: 'users',
   initialState,
   reducers: {
     setUserInfo: (state, action) => {
       state.user = action.payload?.data.user || initialState.user;
+      state.user.role = action.payload?.data.user.role || initialState.user.role;
       state.auth_token = localStorage.getItem('token');
       state.isLoggedIn = action.payload.data.loading;
       if (state.isLoggedIn) {
@@ -36,6 +48,7 @@ const userSlice = createSlice({
     },
     setUserInfoFromToken: (state, action) => {
       state.user = action.payload.data.user;
+      state.user.role = action.payload.data.user.role;
       state.isLoggedIn = action.payload.data.loading;
       state.auth_token = localStorage.getItem('token');
       if (state.isLoggedIn) {
@@ -48,6 +61,16 @@ const userSlice = createSlice({
       localStorage.removeItem('token');
       localStorage.removeItem('user');
     },
+  },
+  extraReducers(builder) {
+    builder
+      .addCase(verifyUser.fulfilled, (state, action) => {
+        state.user.role = 'admin';
+        toast.success(action.payload.message);
+      })
+      .addCase(verifyUser.rejected, (action) => {
+        toast.error(action.payload.message);
+      });
   },
 });
 
