@@ -51,7 +51,7 @@ function BookDetail() {
             <br />
             <NavLink to="/newreservation" className="form-bt">
               <IoSettingsOutline className="i" />
-              Add reservations
+              Barrow Book
               <IoChevronForwardCircleOutline className="i" />
             </NavLink>
           </div>
