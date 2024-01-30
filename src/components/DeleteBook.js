@@ -13,7 +13,7 @@ const DeleteBook = () => {
   return (
     <>
       <div className="delete-container">
-        <h2 className="title">Delete Books</h2>
+        <p className="detail-title">Delete Books</p>
         <div className="delete-list">
           {books.books.map((book) => (
             <div className="delete-book" key={book.id}>
