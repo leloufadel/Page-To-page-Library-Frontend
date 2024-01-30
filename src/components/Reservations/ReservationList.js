@@ -1,12 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import SideNav from '../Navbar/navbar';
 
 const ReservationList = () => {
   const reservations = useSelector((state) => state.reservations);
 
   return (
     <div>
+      <SideNav />
       <h2>Your borrowed books</h2>
       <ul>
         {reservations.reservations.map((res) => (

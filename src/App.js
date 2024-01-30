@@ -11,8 +11,7 @@ import BookDetail from './components/BookDetail';
 import MainPage from './components/MainPage';
 import ReservationList from './components/Reservations/ReservationList';
 import ReservationForm from './components/Reservations/ReservationForm';
-import Verify from './components/user/verify';
-import SideNav from './components/Navbar/navbar';
+import Update from './components/user/update';
 import DeleteBook from './components/DeleteBook';
 import AdminRoute from './components/user/AdminRoute';
 import './App.css';
@@ -36,7 +35,6 @@ function App() {
 
   return (
     <>
-      <SideNav />
       <Routes>
         <Route path="/" element={<Splash />} />
         <Route path="/mainpage" element={<MainPage />} />
@@ -59,7 +57,7 @@ function App() {
         <Route path="/books/:id" element={<BookDetail />} />
         <Route path="/myreservations" element={<ReservationList />} />
         <Route path="/newreservation" element={<ReservationForm />} />
-        <Route path="/verify" element={<Verify />} />
+        <Route path="/update" element={<Update />} />
       </Routes>
       <ToastContainer />
     </>
