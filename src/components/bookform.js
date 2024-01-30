@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createBook, getBooks } from '../redux/bookSlice';
 import '../stylesheets/bookform.css';
+import SideNav from './Navbar/navbar';
 
 const BookForm = () => {
   const [name, setName] = useState('');
@@ -37,6 +38,7 @@ const BookForm = () => {
   };
 
   return (
+    <> <SideNav />
     <div className="centered-container">
       <form className="input" onSubmit={handleSubmit}>
         <div className="mb-3">
@@ -65,6 +67,7 @@ const BookForm = () => {
         </button>
       </form>
     </div>
+    </>
   );
 };
 
