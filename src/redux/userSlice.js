@@ -4,20 +4,19 @@ import { toast } from 'react-toastify';
 
 const BASE_URL = 'http://localhost:3000/';
 
-const tokenKey = 'auth_token';
+const initialToken = localStorage.getItem('token') || null;
 
-const initialToken = localStorage.getItem(tokenKey) || null;
+let userData = null;
+try {
+  userData = JSON.parse(localStorage.getItem('user')) || null;
+} catch (error) {
+  console.error('Error parsing user data:', error);
+}
 
 const initialState = {
   auth_token: initialToken,
   isLoggedIn: false,
-  user: {
-    id: null,
-    name: null,
-    email: null,
-    password: null,
-    role: null,
-  },
+  user: userData,
   headers: {},
 };
 
@@ -58,9 +57,9 @@ const userSlice = createSlice({
     },
     resetUserInfo: (state) => {
       state.isLoggedIn = false;
-      state.user = initialState.user;
       state.auth_token = null;
       localStorage.removeItem('token');
+      localStorage.removeItem('user');
     },
   },
   extraReducers(builder) {
@@ -95,8 +94,10 @@ export const loginUser = (payload) => async (dispatch) => {
       data: response.data,
       authorization: headers?.authorization || '',
       headers,
+      user: response.data.user,
     }));
     localStorage.setItem('token', response.headers.get('Authorization'));
+    localStorage.setItem('user', JSON.stringify(response.data.user));
     return response.data;
   } catch (error) {
     if (error.response && error.response.status === 401) {
