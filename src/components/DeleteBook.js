@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import { removeBook } from '../redux/bookSlice';
 
 const DeleteBook = () => {
@@ -8,6 +9,7 @@ const DeleteBook = () => {
 
   const handleDelete = (bookId) => {
     dispatch(removeBook(bookId));
+    toast.success('Book Deleted Successfully');
   };
 
   return (
