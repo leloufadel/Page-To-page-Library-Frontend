@@ -2,17 +2,17 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import store from '../redux/store';
-import Verify from '../components/user/verify';
+import Update from '../components/user/update';
 
 jest.mock('axios', () => ({
   get: jest.fn(),
 }));
 
-describe('renders Verify component', () => {
+describe('renders Update component', () => {
   it('matches the snapshot', () => {
     const { container } = render(
       <Provider store={store}>
-        <Verify />
+        <Update />
       </Provider>,
     );
     expect(container).toMatchSnapshot();

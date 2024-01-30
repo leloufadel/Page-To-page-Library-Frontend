@@ -27,7 +27,6 @@ export const updateRole = createAsyncThunk('user/updateRole', async ({ email }) 
       Authorization: `${token}`,
     },
   });
-  console.log(response.data);
   return response.data;
 });
 
