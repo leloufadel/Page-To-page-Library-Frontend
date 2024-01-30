@@ -9,6 +9,15 @@ jest.mock('axios', () => ({
 }));
 
 describe('Loading navbar component', () => {
+  beforeEach(() => {
+    Storage.prototype.getItem = jest.fn((key) => {
+      if (key === 'user') {
+        return JSON.stringify({ role: 'admin' });
+      }
+      return null;
+    });
+  });
+
   it('Renders correctly', () => {
     render(
       <BrowserRouter>
@@ -29,12 +38,12 @@ describe('Loading navbar component', () => {
 
     const books = screen.getByRole('link', { name: 'Books' });
     const addBook = screen.getByRole('link', { name: 'Add Book +' });
-    const deleteBook = screen.getByRole('link', { name: 'Delete Book-' });
-    const verify = screen.getByRole('link', { name: 'Verify' });
+    const deleteBook = screen.getByRole('link', { name: 'Delete Book -' });
+    const verify = screen.getByRole('link', { name: 'Give Permission' });
 
     expect(books).toHaveAttribute('href', '/MainPage');
     expect(addBook).toHaveAttribute('href', '/BookForm');
     expect(deleteBook).toHaveAttribute('href', '/deletebook');
-    expect(verify).toHaveAttribute('href', '/verify');
+    expect(verify).toHaveAttribute('href', '/update');
   });
 });

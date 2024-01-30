@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { updateRole } from '../../redux/userSlice';
 import SideNav from '../Navbar/navbar';
 
-function Verify() {
+function Update() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
 
@@ -43,4 +43,4 @@ function Verify() {
   );
 }
 
-export default Verify;
+export default Update;
