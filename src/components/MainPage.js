@@ -19,7 +19,6 @@ const MainPage = () => {
   const isMediumScreen = useMediaQuery({ query: '(min-width: 768px) and (max-width: 992px)' });
   const isLargeScreen = useMediaQuery({ query: '(min-width: 992px)' });
 
-
   let booksPerPage = 3;
   if (isExtraSmallScreen) {
     booksPerPage = 1;
