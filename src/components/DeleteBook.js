@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeBook } from '../redux/bookSlice';
+import SideNav from './Navbar/navbar';
 
 const DeleteBook = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ const DeleteBook = () => {
 
   return (
     <>
+      <SideNav />
       <div className="delete-container">
         <p className="detail-title">Delete Books</p>
         <div className="delete-list">

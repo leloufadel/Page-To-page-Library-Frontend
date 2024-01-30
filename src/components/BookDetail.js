@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import SideNav from './Navbar/navbar';
 
 function BookDetail() {
   const books = useSelector((state) => state.books);
@@ -14,6 +15,7 @@ function BookDetail() {
 
   return (
     <>
+      <SideNav />
       <div className="main">
         <p className="detail-title">Book Detail page</p>
         <div className="book-detail">

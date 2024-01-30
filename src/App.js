@@ -11,7 +11,6 @@ import BookDetail from './components/BookDetail';
 import MainPage from './components/MainPage';
 import ReservationList from './components/Reservations/ReservationList';
 import ReservationForm from './components/Reservations/ReservationForm';
-import SideNav from './components/Navbar/navbar';
 import DeleteBook from './components/DeleteBook';
 
 import './App.css';
@@ -35,7 +34,6 @@ function App() {
 
   return (
     <>
-      <SideNav />
       <Routes>
         <Route path="/" element={<Splash />} />
         <Route path="/mainpage" element={<MainPage />} />
