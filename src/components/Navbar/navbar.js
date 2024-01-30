@@ -53,8 +53,8 @@ const SideNav = () => {
           { role === 'admin' && (
           <>
             <li className="sidenav-item">
-              <NavLink to="/verify" className="sidenav-link" onClick={toggleSidebar}>
-                Verify
+              <NavLink to="/update" className="sidenav-link" onClick={toggleSidebar}>
+                Give Permission
               </NavLink>
             </li>
           </>

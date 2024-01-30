@@ -19,7 +19,7 @@ function Verify() {
       <div className="centered-container">
         <form className="input" onSubmit={handleVerify}>
           <div className="mb-3 text-center">
-            <h1>Update User</h1>
+            <h1>Give User Admin Role</h1>
             <p> If you wish to turn a user into an admin, please add their email bellow. </p>
           </div>
           <div className="mb-3">

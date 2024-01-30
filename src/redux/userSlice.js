@@ -20,17 +20,6 @@ const initialState = {
   headers: {},
 };
 
-// export const verifyUser = createAsyncThunk('user/verifyUser', async ({ token }) => {
-//   const config = {
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//     },
-//   };
-
-//   const response = await axios.post(`${BASE_URL}verify`, {}, config);
-//   return response.data;
-// });
-
 export const updateRole = createAsyncThunk('user/updateRole', async ({ email }) => {
   const token = localStorage.getItem('token');
   const response = await axios.post(`${BASE_URL}update`, { email }, {
