@@ -3,7 +3,7 @@ import '../../stylesheets/login.css';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import { registerUser } from '../../redux/user/userSlice';
+import { registerUser } from '../../redux/userSlice';
 
 const Signup = ({ onClose }) => {
   const dispatch = useDispatch();

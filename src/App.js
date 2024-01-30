@@ -11,9 +11,10 @@ import BookDetail from './components/BookDetail';
 import MainPage from './components/MainPage';
 import ReservationList from './components/Reservations/ReservationList';
 import ReservationForm from './components/Reservations/ReservationForm';
+import Verify from './components/user/verify';
 import SideNav from './components/Navbar/navbar';
 import DeleteBook from './components/DeleteBook';
-
+import AdminRoute from './components/user/AdminRoute';
 import './App.css';
 
 function App() {
@@ -39,11 +40,26 @@ function App() {
       <Routes>
         <Route path="/" element={<Splash />} />
         <Route path="/mainpage" element={<MainPage />} />
-        <Route path="/bookform" element={<BookForm />} />
+        <Route
+          path="/bookform"
+          element={(
+            <AdminRoute>
+              <BookForm />
+            </AdminRoute>
+)}
+        />
+        <Route
+          path="/deletebook"
+          element={(
+            <AdminRoute>
+              <DeleteBook />
+            </AdminRoute>
+)}
+        />
         <Route path="/books/:id" element={<BookDetail />} />
-        <Route path="/deletebook" element={<DeleteBook />} />
         <Route path="/myreservations" element={<ReservationList />} />
         <Route path="/newreservation" element={<ReservationForm />} />
+        <Route path="/verify" element={<Verify />} />
       </Routes>
       <ToastContainer />
     </>
