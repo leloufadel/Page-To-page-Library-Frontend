@@ -6,7 +6,7 @@ const initialState = {
   isLoading: true,
 };
 
-const url = 'http://localhost:3000/api/books';
+const url = 'https://library-api-7fik.onrender.com/api/books';
 
 export const getBooks = createAsyncThunk('books/getBooks', async () => {
   const res = await axios.get(url);

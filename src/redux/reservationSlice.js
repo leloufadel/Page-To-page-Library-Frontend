@@ -5,8 +5,8 @@ const initialState = {
   reservations: [],
   isLoading: true,
 };
-// I use my rails server on port 3001, so please change it if you want to
-const url = 'http://localhost:3000/api/reservations';
+
+const url = 'https://library-api-7fik.onrender.com/api/reservations';
 
 export const getReservations = createAsyncThunk('reservations/getReservations', async (userId) => {
   const response = await axios.get(`${url}?user_id=${userId}`);
