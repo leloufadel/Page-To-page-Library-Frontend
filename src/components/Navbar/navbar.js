@@ -6,6 +6,7 @@ import {
 import { BsTwitter } from 'react-icons/bs';
 import { AiOutlineCopyrightCircle } from 'react-icons/ai';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { toast } from 'react-toastify';
 import logoImage from '../../Assets/logolibrary.png';
 import '../../stylesheets/navbar.css';
 import Logout from '../user/logout';
@@ -25,8 +26,16 @@ const SideNav = () => {
   const closeLogoutModal = () => {
     setLogoutModalOpen(false);
   };
+
   const userData = JSON.parse(localStorage.getItem('user'));
   const { role } = userData;
+
+  const adminWarn = () => {
+    if (role !== 'admin') {
+      toast.error('You are not an admin');
+    }
+  };
+
   return (
     <div className={`nav-container ${isNavVisible ? 'open' : ''} d-flex flex-column align-items-center`}>
 
@@ -55,12 +64,12 @@ const SideNav = () => {
           </>
           )}
           <li className="sidenav-item">
-            <NavLink to="/BookForm" className="sidenav-link" onClick={toggleSidebar}>
+            <NavLink to="/BookForm" className="sidenav-link" onClick={() => { toggleSidebar(); adminWarn(); }}>
               Add Book +
             </NavLink>
           </li>
           <li className="sidenav-item">
-            <NavLink to="/deletebook" className="sidenav-link" onClick={toggleSidebar}>
+            <NavLink to="/deletebook" className="sidenav-link" onClick={() => { toggleSidebar(); adminWarn(); }}>
               Delete Book -
             </NavLink>
           </li>
