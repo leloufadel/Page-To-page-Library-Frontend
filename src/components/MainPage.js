@@ -32,9 +32,6 @@ const MainPage = () => {
     booksPerPage = 3;
   }
 
-  // const booksPerPage = isMobile ? books.books.length : 3;
-
-  // Logic for displaying books
   const startIndex = (currentPage - 1) * booksPerPage;
   const endIndex = startIndex + booksPerPage;
 
