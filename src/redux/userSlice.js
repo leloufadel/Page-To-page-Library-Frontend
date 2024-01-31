@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-const BASE_URL = 'http://localhost:3000/';
+const BASE_URL = 'https://library-api-7fik.onrender.com/';
 
 const initialToken = localStorage.getItem('token') || null;
 
@@ -60,15 +60,6 @@ const userSlice = createSlice({
       localStorage.removeItem('user');
     },
   },
-  // extraReducers(builder) {
-  //   builder
-  //     .addCase(updateRole.fulfilled, (action) => {
-  //       toast.success(action.payload.message);
-  //     })
-  //     .addCase(updateRole.rejected, (action) => {
-  //       toast.error(action.payload.message);
-  //     });
-  // },
 });
 
 export const { setUserInfo, setUserInfoFromToken, resetUserInfo } = userSlice.actions;
