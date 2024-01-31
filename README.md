@@ -87,7 +87,7 @@ This project was built using these technologies.
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-[Comming soon]()
+[Here](https://page-to-page.onrender.com/mainpage) you can find a live demo of our frontend, that is using our own Library API (which you can also find [here](https://library-api-f7m3.onrender.com)!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -212,6 +212,7 @@ If you find this project helpful, please consider starring the repository. Your 
 **I would like to thank the following individuals and organizations for their contribution to this project.**
 
 - I would like to express my heartfelt gratitude to [**Microvere**](https://www.microverse.org/?grsf=mohammad-a-nbtazu) for the invaluable learning experience they have provided. 
+- We also would like to mention that the design of the website is not ours. We followed [Murat Kormaz's design](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign) in Behance, and thus follow the [Creative Commons License](https://creativecommons.org/licenses/by-nc/4.0/) terms.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
