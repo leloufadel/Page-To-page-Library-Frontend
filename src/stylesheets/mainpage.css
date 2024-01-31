@@ -142,23 +142,12 @@ h2 {
     border-radius: 50%;
   }
 
-  /* body {
-    overflow: auto;
-  } */
-
   .book-list {
     width: 90%;
     display: flex;
     gap: 0.4rem;
-
-    /* overflow-y: scroll; */
     overflow-y: auto;
     padding-top: 5%;
   }
 
-  /*
-  .list {
-    margin-top: 2rem;
-    padding-top: 5rem;
-  } */
 }
