@@ -6,7 +6,7 @@ const initialState = {
   isLoading: true,
 };
 
-const url = 'https://library-api-f7m3.onrender.comapi/reservations';
+const url = 'https://library-api-f7m3.onrender.com/api/reservations';
 
 export const getReservations = createAsyncThunk('reservations/getReservations', async (userId) => {
   const response = await axios.get(`${url}?user_id=${userId}`);
