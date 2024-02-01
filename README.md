@@ -151,7 +151,7 @@ Here's our [Project Board](https://github.com/leloufadel/Page-To-page-Library-Ba
 ## 👥 Author <a name="authors"></a>
 
 👤 **Sadaf Daneshgar**
-
+(NOTE) In case you see in the commit history a `"sadaf`, it is also her!
 - 👤 GitHub: [@Sadaf-Daneshgar](https://github.com/sadaf-Daneshgar)
 - 👤 Twitter: [@SadafDaneshgar](https://twitter.com/SadafDaneshgar)
 - 👤 LinkedIn: [Sadaf Daneshgar](https://www.linkedin.com/in/sadaf-daneshgar-2002saba/)
