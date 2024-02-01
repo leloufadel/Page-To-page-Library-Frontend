@@ -142,7 +142,9 @@ npm test
 
 ## 📋 Kanban Board <a name="kanban-board"></a>
 
-[Project Board](https://github.com/leloufadel/Page-To-page-Library-Backend/projects/1)
+Here's our [Project Board](https://github.com/leloufadel/Page-To-page-Library-Backend/projects/1). Take a look at how we started!
+![kanban1](https://github.com/leloufadel/Page-To-page-Library-Frontend/assets/91759364/d65adb66-673c-4a30-aaff-cb7f99c7c45a)
+![kanban2](https://github.com/leloufadel/Page-To-page-Library-Frontend/assets/91759364/66d53b15-9ef8-4ca3-ac1e-368edd0bde45)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
