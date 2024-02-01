@@ -87,7 +87,7 @@ This project was built using these technologies.
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-[Here](https://page-to-page.onrender.com/mainpage) you can find a live demo of our frontend, that is using our own Library API (which you can also find [here](https://library-api-f7m3.onrender.com)!
+[Here](https://page-to-page.onrender.com/) you can find a live demo of our frontend, that is using our own Library API (which you can also find [here](https://library-api-f7m3.onrender.com)!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
